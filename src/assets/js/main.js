@@ -232,7 +232,7 @@
           status.className = "form__status is-ok";
         }
         window.setTimeout(function () {
-          window.location.href = "/thank-you/";
+          window.location.href = form.getAttribute("data-thanks") || "/thank-you/";
         }, reduceMotion ? 0 : 400);
       }
     });

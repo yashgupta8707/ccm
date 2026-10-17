@@ -1,4 +1,11 @@
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+
 module.exports = function (eleventyConfig) {
+  // Rewrites root-relative href/src in the built HTML with pathPrefix, so the
+  // same templates work at a domain root and under a sub-path such as the
+  // GitHub Pages project URL (/ccm/). Locally the prefix is just "/".
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+
   // Pass through static assets and server config files untouched.
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/.htaccess");
@@ -96,6 +103,9 @@ module.exports = function (eleventyConfig) {
   });
 
   return {
+    // Set ELEVENTY_PATH_PREFIX=/ccm/ for the GitHub Pages build; leave unset
+    // when the site is served from the root of its own domain.
+    pathPrefix: process.env.ELEVENTY_PATH_PREFIX || "/",
     dir: {
       input: "src",
       output: "_site",

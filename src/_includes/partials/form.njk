@@ -7,7 +7,7 @@
     Posts to site.formEndpoint; validation is client-side only and a successful
     submit lands on /thank-you (see assets/js/main.js). -#}
 {%- set fid = formId or 'enquiry' %}
-<form class="form" id="{{ fid }}" action="{{ site.formEndpoint }}" method="post" novalidate data-form>
+<form class="form" id="{{ fid }}" action="{{ site.formEndpoint }}" method="post" novalidate data-form data-thanks="{{ '/thank-you/' | url }}">
   {%- if formHeading %}
   <h3 class="form__heading">{{ formHeading }}</h3>
   {%- endif %}

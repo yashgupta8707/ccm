@@ -270,6 +270,12 @@ Run `npm run build` and upload the **contents of `_site/`** to the web root.
 - **Netlify / Cloudflare Pages / Vercel:** build command `npm run build`,
   publish directory `_site`. These ignore `.htaccess`, so recreate the redirects
   in `_redirects` / `netlify.toml` / `vercel.json`.
+- **GitHub Pages (preview):** every push to `main` builds and deploys via
+  `.github/workflows/deploy.yml` to https://yashgupta8707.github.io/ccm/. The
+  workflow sets `ELEVENTY_PATH_PREFIX=/ccm/` so links work under that sub-path;
+  delete that line if a custom domain is attached. GitHub Pages ignores
+  `.htaccess`, so the old-URL redirects do not apply there. Canonical URLs still
+  point at `site.url`, so the preview is not indexed as a duplicate.
 
 Before go-live: set the real domain in `site.json` (`url`) if it changes, fill in
 the placeholders, replace the images and logo, add the PDFs, set the GA4 ID and
