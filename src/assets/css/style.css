@@ -730,7 +730,7 @@ a:hover { color: var(--accent-600); }
 .table tbody tr:last-child th, .table tbody tr:last-child td { border-bottom: 0; }
 .table tbody tr:hover { background: var(--bg-alt); }
 /* Two- or three-column tables fit a phone, so they size to their content. */
-.table--compact { min-width: 0; }
+.table--compact, .prose .table--compact { min-width: 0; }
 
 /* ---------- People, facilities, gallery -------------------------------- */
 
