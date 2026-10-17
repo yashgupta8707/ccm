@@ -1,0 +1,36 @@
+---
+layout: layouts/page.njk
+permalink: /404.html
+title: Page not found
+metaTitle: "Page not found – City College of Management"
+metaDescription: "The page you asked for is not on this site. Find courses, admissions and contact details for City College of Management, Lucknow."
+h1: We could not find that page
+intro: "The link may be from the old website, or the page may have moved."
+noindex: true
+hideCta: true
+eleventyExcludeFromCollections: true
+---
+<section class="section" aria-labelledby="nf-head">
+  <div class="wrap wrap--prose reveal">
+    <h2 id="nf-head">Try one of these instead</h2>
+    <ul class="chips">
+      <li><a class="chip" href="/">Home</a></li>
+      <li><a class="chip" href="/courses/">All courses</a></li>
+      <li><a class="chip" href="/admissions/">Admissions {{ site.admissionSession }}</a></li>
+      <li><a class="chip" href="/campus-life/">Campus life</a></li>
+      <li><a class="chip" href="/news-events/">News &amp; events</a></li>
+      <li><a class="chip" href="/contact/">Contact</a></li>
+    </ul>
+
+    <h2>The seven programmes</h2>
+    <ul class="chips">
+      {%- for p in programmes %}
+      <li><a class="chip" href="/courses/{{ p.slug }}/">{{ p.name }}</a></li>
+      {%- endfor %}
+    </ul>
+
+    <p style="margin-top:var(--sp-5)">Still stuck? Call the admission helpline on
+      <a href="{{ site.phoneHref }}" data-track="call">{{ site.phone | ph | safe }}</a>
+      or email <a href="{{ site.emailHref }}">{{ site.email | ph | safe }}</a>.</p>
+  </div>
+</section>

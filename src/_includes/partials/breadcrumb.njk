@@ -1,0 +1,15 @@
+{%- if breadcrumb %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="wrap">
+    <ol>
+      <li><a href="/">Home</a></li>
+      {%- for crumb in breadcrumb %}
+      <li>
+        {%- if crumb.url %}<a href="{{ crumb.url }}">{{ crumb.label }}</a>
+        {%- else %}<span aria-current="page">{{ crumb.label }}</span>{% endif %}
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</nav>
+{%- endif %}

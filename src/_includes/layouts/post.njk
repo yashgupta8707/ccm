@@ -1,0 +1,65 @@
+---
+layout: layouts/base.njk
+---
+{%- set hero = images[image] %}
+{% include "partials/breadcrumb.njk" %}
+
+<article class="post">
+  <header class="post__head">
+    <div class="wrap wrap--prose">
+      {%- if category %}<p class="eyebrow">{{ category }}</p>{% endif %}
+      <h1>{{ h1 or title }}</h1>
+      <p class="post__meta">
+        <time datetime="{{ page.date | dateISO }}">{{ page.date | dateLong }}</time>
+        {%- if author %} &middot; <span>{{ author }}</span>{% endif %}
+        {%- if eventDate %} &middot; <span>Event date: {{ eventDate | dateLong }}</span>{% endif %}
+      </p>
+      {%- if intro %}<p class="lede">{{ intro | ph | safe }}</p>{% endif %}
+    </div>
+  </header>
+
+  {%- if hero %}
+  <figure class="post__figure">
+    <div class="wrap">
+      <img src="{{ hero.url }}" alt="{{ hero.alt }}" width="{{ hero.width }}" height="{{ hero.height }}" fetchpriority="high">
+    </div>
+  </figure>
+  {%- endif %}
+
+  <div class="wrap wrap--prose prose">
+    {# `ph` highlights the [square-bracket placeholders] left in the post copy. #}
+    {{ content | ph | safe }}
+
+    {%- if attachment %}
+    <p class="callout">
+      <strong>Attachment:</strong>
+      <a href="{{ attachment }}">{{ attachmentLabel or 'Download the PDF' }}</a>
+      <span class="ph">[Upload the signed PDF to {{ attachment }}]</span>
+    </p>
+    {%- endif %}
+
+    <aside class="applybox">
+      <h2>Admissions {{ site.admissionSession }} are open</h2>
+      <p>Applications are open for all seven programmes at {{ site.name }}, Chinhat, Lucknow.</p>
+      <p class="applybox__actions">
+        <a class="btn btn--primary" href="/admissions/#apply">Apply Now</a>
+        <a class="btn btn--ghost" href="{{ site.phoneHref }}" data-track="call">Call {{ site.phone | ph | safe }}</a>
+      </p>
+    </aside>
+
+    {%- if related %}
+    <h2>Programmes mentioned in this article</h2>
+    <ul class="chips">
+      {%- for slug in related %}
+      {%- for p in programmes %}{% if p.slug == slug %}
+      <li><a class="chip" href="/courses/{{ p.slug }}/">{{ p.name }} &mdash; {{ p.duration }}</a></li>
+      {% endif %}{% endfor %}
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+
+    <p><a class="link-arrow" href="{{ backUrl or '/blog/' }}">{{ backLabel or 'Back to all articles' }}</a></p>
+  </div>
+</article>
+
+{% include "partials/cta.njk" %}

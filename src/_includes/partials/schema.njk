@@ -1,0 +1,213 @@
+{#- JSON-LD blocks. A page opts in through its front matter:
+      schemaCollege: true   -> CollegeOrUniversity (home, about, contact)
+      breadcrumb: [...]     -> BreadcrumbList for inner pages
+      faqs: [...]           -> FAQPage
+    Programme pages add Course, and posts add Article/Event, in their layouts. -#}
+
+{%- if schemaCollege %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollegeOrUniversity",
+  "@id": "{{ site.url }}/#college",
+  "name": "{{ site.name }}",
+  "alternateName": "{{ site.shortName }}",
+  "url": "{{ site.url }}/",
+  "description": {{ site.description | jsonify | safe }},
+  "foundingDate": "{{ site.established }}",
+  "logo": "{{ site.url }}/assets/img/logo.svg",
+  "image": "{{ site.ogImage }}",
+  "telephone": {{ site.phone | jsonify | safe }},
+  "email": {{ site.email | jsonify | safe }},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ site.address.street | jsonify | safe }},
+    "addressLocality": {{ site.address.locality | jsonify | safe }},
+    "addressRegion": {{ site.address.region | jsonify | safe }},
+    "postalCode": {{ site.address.postalCode | jsonify | safe }},
+    "addressCountry": "{{ site.address.country }}"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ site.geo.latitude }}",
+    "longitude": "{{ site.geo.longitude }}"
+  },
+  "areaServed": "Lucknow, Uttar Pradesh",
+  "parentOrganization": {
+    "@type": "EducationalOrganization",
+    "name": {{ site.parentOrganization | jsonify | safe }},
+    "url": "{{ site.parentUrl }}"
+  },
+  "sameAs": [
+    {{ site.social.facebook | jsonify | safe }},
+    {{ site.social.instagram | jsonify | safe }},
+    {{ site.social.youtube | jsonify | safe }},
+    {{ site.social.linkedin | jsonify | safe }}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Programmes offered",
+    "itemListElement": [
+      {%- for p in programmes %}
+      {
+        "@type": "Course",
+        "name": {{ (p.name + ' (' + p.fullName + ')') | jsonify | safe }},
+        "url": "{{ site.url }}/courses/{{ p.slug }}/"
+      }{{ "," if not loop.last }}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
+{%- endif %}
+
+{%- if breadcrumb %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.url }}/"
+    }{% for crumb in breadcrumb %},
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index + 1 }},
+      "name": {{ crumb.label | jsonify | safe }}{% if crumb.url %},
+      "item": "{{ site.url }}{{ crumb.url }}"{% endif %}
+    }{% endfor %}
+  ]
+}
+</script>
+{%- endif %}
+
+{#- Course schema for the seven programme pages. `programme` is the pagination
+    alias set by src/courses/programme.njk, so it is in scope here too. -#}
+{%- if programme %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": {{ (programme.name + ' (' + programme.fullName + ')') | jsonify | safe }},
+  "description": {{ programme.about[0] | plain | jsonify | safe }},
+  "url": "{{ site.url }}{{ page.url }}",
+  "timeRequired": "{{ programme.durationISO }}",
+  "educationalCredentialAwarded": {{ programme.credential | jsonify | safe }},
+  "educationalLevel": {{ programme.level | jsonify | safe }},
+  "inLanguage": "en",
+  "provider": {
+    "@type": "CollegeOrUniversity",
+    "@id": "{{ site.url }}/#college",
+    "name": {{ site.name | jsonify | safe }},
+    "url": "{{ site.url }}/",
+    "sameAs": "{{ site.url }}/"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "full-time",
+    "courseWorkload": "{{ programme.durationISO }}",
+    "location": {
+      "@type": "Place",
+      "name": {{ site.name | jsonify | safe }},
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": {{ site.address.street | jsonify | safe }},
+        "addressLocality": {{ site.address.locality | jsonify | safe }},
+        "addressRegion": {{ site.address.region | jsonify | safe }},
+        "addressCountry": "{{ site.address.country }}"
+      }
+    }
+  }
+}
+</script>
+{%- endif %}
+
+{%- set faqList = faqs or programme.faqs %}
+{%- if faqList %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for item in faqList %}
+    {
+      "@type": "Question",
+      "name": {{ item.q | plain | jsonify | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ item.a | plain | jsonify | safe }}
+      }
+    }{{ "," if not loop.last }}
+    {%- endfor %}
+  ]
+}
+</script>
+{%- endif %}
+
+{#- Article for blog posts, Event for event posts. Posts set `postType`. -#}
+{%- if postType == 'article' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ (h1 or title) | plain | jsonify | safe }},
+  "description": {{ metaDescription | jsonify | safe }},
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+  "image": {{ (images[image].url if image else site.ogImage) | jsonify | safe }},
+  "datePublished": "{{ page.date | dateFull }}",
+  "dateModified": "{{ (updated or page.date) | dateFull }}",
+  "author": {
+    "@type": "Organization",
+    "name": {{ (author or site.name) | jsonify | safe }},
+    "url": "{{ site.url }}/"
+  },
+  "publisher": {
+    "@type": "CollegeOrUniversity",
+    "@id": "{{ site.url }}/#college",
+    "name": {{ site.name | jsonify | safe }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/img/logo.svg"
+    }
+  }
+}
+</script>
+{%- endif %}
+
+{%- if postType == 'event' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": {{ (h1 or title) | plain | jsonify | safe }},
+  "description": {{ metaDescription | jsonify | safe }},
+  "url": "{{ site.url }}{{ page.url }}",
+  "image": {{ (images[image].url if image else site.ogImage) | jsonify | safe }},
+  "startDate": "{{ (eventDate or page.date) | dateFull }}",
+  {% if eventEndDate %}"endDate": "{{ eventEndDate | dateFull }}",{% endif %}
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "organizer": {
+    "@type": "CollegeOrUniversity",
+    "@id": "{{ site.url }}/#college",
+    "name": {{ site.name | jsonify | safe }},
+    "url": "{{ site.url }}/"
+  },
+  "location": {
+    "@type": "Place",
+    "name": {{ (eventLocation or site.name) | jsonify | safe }},
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": {{ site.address.street | jsonify | safe }},
+      "addressLocality": {{ site.address.locality | jsonify | safe }},
+      "addressRegion": {{ site.address.region | jsonify | safe }},
+      "postalCode": {{ site.address.postalCode | jsonify | safe }},
+      "addressCountry": "{{ site.address.country }}"
+    }
+  }
+}
+</script>
+{%- endif %}

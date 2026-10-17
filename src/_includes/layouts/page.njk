@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+---
+{% include "partials/breadcrumb.njk" %}
+
+<header class="pagehead{% if pageHeadImage %} pagehead--image{% endif %}"
+  {%- if pageHeadImage %} style="--pagehead-image:url('{{ images[pageHeadImage].url }}')"{% endif %}>
+  <div class="wrap">
+    <h1>{{ h1 or title }}</h1>
+    {%- if intro %}<p class="lede">{{ intro | ph | safe }}</p>{% endif %}
+    {%- if pageHeadActions %}
+    <p class="pagehead__actions">
+      <a class="btn btn--primary" href="/admissions/#apply">Apply Now</a>
+      <a class="btn btn--ghost" href="{{ site.phoneHref }}" data-track="call">Call Admission Team</a>
+    </p>
+    {%- endif %}
+  </div>
+</header>
+
+{%- if subnav %}
+{# Sticky in-page sub-menu, used by the long About and Admissions pages. #}
+<nav class="subnav" aria-label="On this page">
+  <div class="wrap subnav__inner">
+    <ul>
+      {%- for item in subnav %}
+      <li><a href="#{{ item.id }}">{{ item.label }}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</nav>
+{%- endif %}
+
+{{ content | safe }}
+
+{%- if faqs %}{% include "partials/faqs.njk" %}{% endif %}
+{%- if not hideCta %}{% include "partials/cta.njk" %}{% endif %}

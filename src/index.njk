@@ -1,0 +1,270 @@
+---
+layout: layouts/base.njk
+title: Home
+metaTitle: "BBA, BCA & B.Ed College in Lucknow | City College of Management"
+metaDescription: "City College of Management, Chinhat, Lucknow, since 2008. LU-affiliated BBA, BCA, B.Com, B.Sc Ag and NCTE-recognised B.Ed, M.Ed, D.El.Ed. Apply for 2027-28."
+h1: Management, Computer, Agriculture and Teacher Education College in Lucknow
+schemaCollege: true
+faqs:
+  - q: Which courses does City College of Management offer?
+    a: BBA, BCA, B.Com and B.Sc Agriculture, affiliated to the University of Lucknow, and B.Ed, M.Ed and D.El.Ed, recognised by NCTE.
+  - q: Where is the college located?
+    a: Tiwariganj, Faizabad Road, Chinhat, Lucknow, near Crown Mall.
+  - q: When was the college established?
+    a: In 2008.
+  - q: How do I apply?
+    a: Fill in the application form on the Admissions page or call the admission team on [helpline].
+---
+{# 1. Hero — one campus photo, no carousel. #}
+<section class="hero">
+  <div class="hero__media">
+    <img src="{{ images.hero.url }}" alt="{{ images.hero.alt }}"
+         width="{{ images.hero.width }}" height="{{ images.hero.height }}" fetchpriority="high">
+  </div>
+  <div class="wrap hero__inner">
+    <p class="hero__meta">Since {{ site.established }} &middot; A unit of {{ site.parentOrganization }}</p>
+    <h1>{{ h1 }}</h1>
+    <p>Shape your career at {{ site.name }}, Lucknow. {{ site.tagline }}</p>
+    <p class="badges">
+      <span class="badge">{{ site.affiliation.university }} affiliated</span>
+      <span class="badge">NCTE recognised</span>
+      <span class="badge">7 programmes</span>
+    </p>
+    <p class="hero__actions">
+      <a class="btn btn--accent btn--lg" href="/admissions/#apply">Apply for {{ site.admissionSession }}</a>
+      <a class="btn btn--outline-light btn--lg" href="/courses/">Explore Courses</a>
+    </p>
+  </div>
+</section>
+
+{# 2. At a Glance — every figure comes from site.json. #}
+<section class="glance" aria-label="City College of Management at a glance">
+  <div class="wrap">
+    <ul class="glance__list">
+      <li><strong>Since {{ site.established }}</strong>{{ now.yearsOfService }}+ years of service</li>
+      <li><strong>{{ site.stats.programmes }}</strong>Programmes</li>
+      <li><strong>LU</strong>{{ site.affiliation.university }} affiliated</li>
+      <li><strong>NCTE</strong>Recognised teacher education</li>
+      <li><strong>{{ site.stats.alumni | ph | safe }}</strong>Alumni</li>
+      <li><strong>{{ site.campusArea | ph | safe }}</strong>Campus</li>
+    </ul>
+  </div>
+</section>
+
+{# 3. Welcome #}
+<section class="section" aria-labelledby="welcome-head">
+  <div class="wrap cols cols--sidebar">
+    <div class="reveal">
+      <h2 id="welcome-head">A college built for careers, not just degrees</h2>
+      <p>For more than eighteen years, {{ site.name }} has prepared students from Lucknow and across Uttar Pradesh for careers in business, technology, agriculture and teaching. Our undergraduate programmes are affiliated to the {{ site.affiliation.university }}, and our teacher-education programmes are recognised by the National Council for Teacher Education.</p>
+      <p>Classes are small enough for every student to be known by name. Faculty combine academic depth with practical exposure through projects, internships, field work and school teaching practice. The result is graduates who are ready for the workplace, for higher studies and for competitive examinations.</p>
+      <p><a class="link-arrow" href="/about/">Read our story</a></p>
+    </div>
+    <figure class="reveal" style="margin:0">
+      <img src="{{ images.welcome.url }}" alt="{{ images.welcome.alt }}"
+           width="{{ images.welcome.width }}" height="{{ images.welcome.height }}"
+           loading="lazy" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-2)">
+    </figure>
+  </div>
+</section>
+
+{# 4. Programmes — three stream cards built from programmes.json. #}
+<section class="section section--alt" aria-labelledby="programmes-head">
+  <div class="wrap">
+    <h2 id="programmes-head">Programmes offered</h2>
+    <p class="lede">Seven full-time programmes across three streams, all on one campus on Faizabad Road.</p>
+
+    <ul class="cards cards--3 reveal">
+      {%- set streams = [
+        { key: 'management', title: 'Management and Commerce', image: 'cardManagement',
+          text: 'University of Lucknow degrees for careers in business, IT and finance.' },
+        { key: 'agriculture', title: 'Agriculture', image: 'cardAgriculture',
+          text: 'A professional science degree for farming, agri-business and government agriculture roles.' },
+        { key: 'teacher-education', title: 'Teacher Education', image: 'cardTeacher',
+          text: 'NCTE-recognised programmes for school teachers and teacher educators.' }
+      ] %}
+      {%- for s in streams %}
+      {%- set simg = images[s.image] %}
+      <li class="card card--media card--stream">
+        <img src="{{ simg.url }}" alt="{{ simg.alt }}" width="{{ simg.width }}" height="{{ simg.height }}" loading="lazy">
+        <div class="card__body">
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.text }}</p>
+          <ul class="card__courses">
+            {%- for p in programmes %}{% if p.streamGroup == s.key %}
+            <li><a href="/courses/{{ p.slug }}/">{{ p.name }} <span>{{ p.duration }}</span></a></li>
+            {% endif %}{% endfor %}
+          </ul>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p style="margin-top:var(--sp-5)"><a class="link-arrow" href="/courses/">Compare all seven programmes</a></p>
+  </div>
+</section>
+
+{# 5. Why choose CCM — six tiles. #}
+<section class="section" aria-labelledby="why-head">
+  <div class="wrap">
+    <h2 id="why-head">Why students choose {{ site.name }}</h2>
+    <ul class="reasons reveal">
+      {%- set tiles = [
+        { title: 'Recognised degrees', text: 'University of Lucknow affiliation and NCTE recognition' },
+        { title: 'Experienced faculty', text: 'Qualified teachers who mentor every student' },
+        { title: 'Practical learning', text: 'Computer lab, agriculture field work and school teaching practice' },
+        { title: 'Career support', text: 'Placement cell, internships and interview preparation' },
+        { title: 'Easy to reach', text: 'On Faizabad Road, Chinhat, near Crown Mall, with [transport facility]' },
+        { title: 'Affordable fees', text: 'Transparent fees and scholarship support' }
+      ] %}
+      {%- for t in tiles %}
+      <li>
+        <h3>{{ t.title }}</h3>
+        <p>{{ t.text | ph | safe }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{# 6. Admissions banner #}
+<section class="section cta" aria-labelledby="adm-head">
+  <div class="wrap cta__inner reveal">
+    <div>
+      <h2 id="adm-head">Admissions open for {{ site.admissionSession }}</h2>
+      <p>Applications are open for all seven programmes. Check eligibility, important dates and documents, or speak to our admission team today.</p>
+    </div>
+    <p class="cta__actions">
+      <a class="btn btn--accent btn--lg" href="/admissions/#apply">Apply Now</a>
+      <a class="btn btn--ghost btn--lg" href="{{ site.phoneHref }}" data-track="call">Call Admission Team</a>
+      <a class="btn btn--ghost btn--lg" href="{{ site.whatsappHref }}" data-track="whatsapp">WhatsApp Us</a>
+    </p>
+  </div>
+</section>
+
+{# 7. Campus life preview #}
+<section class="section" aria-labelledby="campus-head">
+  <div class="wrap">
+    <h2 id="campus-head">Life on campus</h2>
+    <p class="lede">Classrooms, labs, library, agriculture field and sports, on one campus in Chinhat.</p>
+    <ul class="gallery reveal">
+      {%- for photo in images.gallery | limit(6) %}
+      <li>
+        <button type="button" data-lightbox aria-label="View larger: {{ photo.alt }}">
+          <img src="{{ photo.url }}" alt="{{ photo.alt }}" width="{{ photo.width }}" height="{{ photo.height }}" loading="lazy">
+        </button>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p style="margin-top:var(--sp-5)">
+      <a class="link-arrow" href="/gallery/">View Gallery</a>
+      &nbsp;&nbsp;<a class="link-arrow" href="/campus-life/">Campus facilities</a>
+    </p>
+  </div>
+</section>
+
+{# 8. Placements preview #}
+<section class="section section--alt" aria-labelledby="plac-head">
+  <div class="wrap">
+    <h2 id="plac-head">Where our students go</h2>
+    <p class="lede">The Training &amp; Placement Cell connects students with employers for internships and campus recruitment.</p>
+
+    <ul class="logos reveal" aria-label="Recruiters">
+      {%- for n in [1,2,3,4,5,6] %}
+      <li><span class="ph">[Recruiter logo {{ n }}]</span></li>
+      {%- endfor %}
+    </ul>
+
+    <ul class="people people--3 reveal" style="margin-top:var(--sp-6)">
+      {%- for n in [1,2] %}
+      {%- set simg = images['student' + n] %}
+      <li class="person">
+        <img src="{{ simg.url }}" alt="{{ simg.alt }}" width="{{ simg.width }}" height="{{ simg.height }}" loading="lazy">
+        <h3><span class="ph">[Student name]</span></h3>
+        <p class="person__role"><span class="ph">[Programme and batch]</span></p>
+        <p class="small"><span class="ph">[Placed at company name]</span></p>
+      </li>
+      {%- endfor %}
+      <li class="person" style="display:grid;place-content:center;padding:var(--sp-5)">
+        <p>Our placement cell trains every student in communication, aptitude and interviews from the first year.</p>
+        <p><a class="link-arrow" href="/placements/">See Placements</a></p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+{# 9. Testimonials #}
+<section class="section" aria-labelledby="testi-head">
+  <div class="wrap">
+    <h2 id="testi-head">What our students say</h2>
+    <ul class="quotes reveal">
+      {%- for n in [1,2,3] %}
+      <li>
+        <figure class="quote">
+          <blockquote><p><span class="ph">[Student quote {{ n }} — to be collected from a current student or alumnus, with consent]</span></p></blockquote>
+          <figcaption>
+            <strong><span class="ph">[Student name]</span></strong>
+            <span class="ph">[Programme, batch]</span>
+          </figcaption>
+        </figure>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{# 10. News & Events — the three most recent posts. #}
+<section class="section section--alt" aria-labelledby="news-head">
+  <div class="wrap">
+    <h2 id="news-head">Latest from campus</h2>
+    <ul class="posts posts--3 reveal">
+      {%- for post in collections.news | limit(3) %}
+      {%- set nimg = images[post.data.image] %}
+      <li class="post-card">
+        {%- if nimg %}<img src="{{ nimg.url }}" alt="{{ nimg.alt }}" width="{{ nimg.width }}" height="{{ nimg.height }}" loading="lazy">{% endif %}
+        <div class="post-card__body">
+          <p class="post-card__meta">{{ post.data.category }} &middot; <time datetime="{{ post.date | dateISO }}">{{ post.date | dateLong }}</time></p>
+          <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+          <p>{{ post.data.intro | excerpt(120) }}</p>
+          <a class="link-arrow" href="{{ post.url }}">Read more</a>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p style="margin-top:var(--sp-5)"><a class="link-arrow" href="/news-events/">All news, notices and events</a></p>
+  </div>
+</section>
+
+{# 11. FAQs — rendered from the front matter above, with FAQPage schema. #}
+{% include "partials/faqs.njk" %}
+
+{# 12. Map and contact strip #}
+<section class="section section--alt" aria-labelledby="map-head">
+  <div class="wrap mapcard">
+    <div class="reveal">
+      <h2 id="map-head">Find the campus</h2>
+      <address style="font-style:normal">
+        <p>{{ site.name }},<br>{{ site.address.street }},<br>{{ site.address.locality }},<br>{{ site.address.region }} {{ site.address.postalCode | ph | safe }}<br><span class="muted">{{ site.address.landmark }}</span></p>
+        <p>
+          <a href="{{ site.phoneHref }}" data-track="call">{{ site.phone | ph | safe }}</a> &middot;
+          <a href="{{ site.emailHref }}">{{ site.email | ph | safe }}</a>
+        </p>
+        <p>{{ site.officeHours | ph | safe }}</p>
+      </address>
+      <p>
+        <a class="btn btn--primary" href="{{ site.mapDirections }}" target="_blank" rel="noopener">Get Directions</a>
+        <a class="btn btn--ghost" href="/contact/">Contact page</a>
+      </p>
+    </div>
+    <div class="reveal">
+      <iframe class="map" src="{{ site.mapEmbed }}" title="Map showing {{ site.name }}, Chinhat, Lucknow"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border-radius:var(--radius)"></iframe>
+    </div>
+  </div>
+</section>
+
+<figure class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" type="button" aria-label="Close image">&times;</button>
+  {# Filled in by main.js when a photo is opened. #}
+  <img src="" alt="" width="1200" height="900">
+  <figcaption></figcaption>
+</figure>

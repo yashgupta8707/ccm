@@ -1,0 +1,459 @@
+{
+  "_note": "Every image on the site is defined here: key -> url, alt, width, height. Replace each url with the college's own WebP photo (under 200 KB) and keep the alt text, which names the college and the subject. People images use neutral picsum placeholders so no real person is implied. The stock photos below were each checked against their alt text.",
+  "hero": {
+    "url": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1600&h=900&q=70",
+    "alt": "Campus building of City College of Management, Faizabad Road, Chinhat, Lucknow",
+    "width": 1600,
+    "height": 900
+  },
+  "welcome": {
+    "url": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1000&h=750&q=70",
+    "alt": "Graduating students of City College of Management, Lucknow, at convocation",
+    "width": 1000,
+    "height": 750
+  },
+  "cardManagement": {
+    "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "BBA, BCA and B.Com students working together on a project at City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "cardAgriculture": {
+    "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Crop field used for B.Sc Agriculture practicals at City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "cardTeacher": {
+    "url": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "B.Ed trainee teaching a school class during teaching practice, City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "bba": {
+    "url": "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?auto=format&fit=crop&w=1200&h=675&q=70",
+    "alt": "Lecture hall used for BBA classes at City College of Management, Lucknow",
+    "width": 1200,
+    "height": 675
+  },
+  "bca": {
+    "url": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&h=675&q=70",
+    "alt": "BCA students working on laptops in the computer lab at City College of Management, Lucknow",
+    "width": 1200,
+    "height": 675
+  },
+  "bcom": {
+    "url": "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=1200&h=675&q=70",
+    "alt": "B.Com student working through an accounting problem at City College of Management, Lucknow",
+    "width": 1200,
+    "height": 675
+  },
+  "agriculture": {
+    "url": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1200&h=675&q=70",
+    "alt": "B.Sc Agriculture field practical in a paddy field, City College of Management, Lucknow",
+    "width": 1200,
+    "height": 675
+  },
+  "bed": {
+    "url": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&h=675&q=70",
+    "alt": "B.Ed trainee teaching a school class during the internship, City College of Management, Lucknow",
+    "width": 1200,
+    "height": 675
+  },
+  "med": {
+    "url": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&h=675&q=70",
+    "alt": "M.Ed students in a research workshop at City College of Management, Lucknow",
+    "width": 1200,
+    "height": 675
+  },
+  "deled": {
+    "url": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&h=675&q=70",
+    "alt": "D.El.Ed trainee with primary school children, City College of Management, Lucknow",
+    "width": 1200,
+    "height": 675
+  },
+  "about": {
+    "url": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&h=700&q=70",
+    "alt": "Academic block of City College of Management, Tiwariganj, Faizabad Road, Lucknow",
+    "width": 1200,
+    "height": 700
+  },
+  "library": {
+    "url": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Book shelves in the library at City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "computerLab": {
+    "url": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Networked computers used for BCA practicals at City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "classrooms": {
+    "url": "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Students at work in a classroom at City College of Management, Chinhat, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "agricultureField": {
+    "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Agriculture field for B.Sc Agriculture crop production practicals, City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "teacherLabs": {
+    "url": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "ICT lab session for B.Ed and D.El.Ed trainees at City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "seminarHall": {
+    "url": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Audience at a guest lecture in the seminar hall, City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "hostel": {
+    "url": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Hostel room for students of City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "transport": {
+    "url": "https://images.unsplash.com/photo-1557223562-6c77ef16210f?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "College bus serving City College of Management, Faizabad Road, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "sports": {
+    "url": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Athletics track used for sports at City College of Management, Chinhat, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "cafeteria": {
+    "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Campus cafeteria at City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "wifi": {
+    "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Students using the Wi-Fi campus on their laptops at City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "campusLife": {
+    "url": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1200&h=700&q=70",
+    "alt": "Library at City College of Management, Tiwariganj, Lucknow",
+    "width": 1200,
+    "height": 700
+  },
+  "placements": {
+    "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&h=700&q=70",
+    "alt": "Students preparing for placement interviews at City College of Management, Lucknow",
+    "width": 1200,
+    "height": 700
+  },
+  "sportsMeet": {
+    "url": "https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=800&h=600&q=70",
+    "alt": "Footballs on the ground at the annual sports meet, City College of Management, Lucknow",
+    "width": 800,
+    "height": 600
+  },
+  "founder": {
+    "url": "https://picsum.photos/seed/ccm-founder/480/560",
+    "alt": "Photograph of the Founder of City College of Management, Lucknow [replace with official photo]",
+    "width": 480,
+    "height": 560
+  },
+  "director": {
+    "url": "https://picsum.photos/seed/ccm-director/480/560",
+    "alt": "Photograph of the Director of City College of Management, Lucknow [replace with official photo]",
+    "width": 480,
+    "height": 560
+  },
+  "leader1": {
+    "url": "https://picsum.photos/seed/ccm-chairman/400/400",
+    "alt": "Photograph of the Chairman, City College of Management, Lucknow [replace with official photo]",
+    "width": 400,
+    "height": 400
+  },
+  "leader2": {
+    "url": "https://picsum.photos/seed/ccm-principal/400/400",
+    "alt": "Photograph of the Principal, City College of Management, Lucknow [replace with official photo]",
+    "width": 400,
+    "height": 400
+  },
+  "leader3": {
+    "url": "https://picsum.photos/seed/ccm-governing/400/400",
+    "alt": "Photograph of a governing body member, City College of Management, Lucknow [replace with official photo]",
+    "width": 400,
+    "height": 400
+  },
+  "counsellor1": {
+    "url": "https://picsum.photos/seed/ccm-counsellor-1/320/320",
+    "alt": "Admission counsellor for BBA, BCA and B.Com at City College of Management, Lucknow [replace with official photo]",
+    "width": 320,
+    "height": 320
+  },
+  "counsellor2": {
+    "url": "https://picsum.photos/seed/ccm-counsellor-2/320/320",
+    "alt": "Admission counsellor for B.Sc Agriculture at City College of Management, Lucknow [replace with official photo]",
+    "width": 320,
+    "height": 320
+  },
+  "counsellor3": {
+    "url": "https://picsum.photos/seed/ccm-counsellor-3/320/320",
+    "alt": "Admission counsellor for B.Ed, M.Ed and D.El.Ed at City College of Management, Lucknow [replace with official photo]",
+    "width": 320,
+    "height": 320
+  },
+  "student1": {
+    "url": "https://picsum.photos/seed/ccm-student-1/320/320",
+    "alt": "Placed student of City College of Management, Lucknow [replace with official photo]",
+    "width": 320,
+    "height": 320
+  },
+  "student2": {
+    "url": "https://picsum.photos/seed/ccm-student-2/320/320",
+    "alt": "Placed student of City College of Management, Lucknow [replace with official photo]",
+    "width": 320,
+    "height": 320
+  },
+  "student3": {
+    "url": "https://picsum.photos/seed/ccm-student-3/320/320",
+    "alt": "Student of City College of Management, Lucknow [replace with official photo]",
+    "width": 320,
+    "height": 320
+  },
+  "faculty1": {
+    "url": "https://picsum.photos/seed/ccm-faculty-1/320/320",
+    "alt": "Faculty member at City College of Management, Lucknow [replace with official photo]",
+    "width": 320,
+    "height": 320
+  },
+  "faculty2": {
+    "url": "https://picsum.photos/seed/ccm-faculty-2/320/320",
+    "alt": "Faculty member at City College of Management, Lucknow [replace with official photo]",
+    "width": 320,
+    "height": 320
+  },
+  "faculty3": {
+    "url": "https://picsum.photos/seed/ccm-faculty-3/320/320",
+    "alt": "Faculty member at City College of Management, Lucknow [replace with official photo]",
+    "width": 320,
+    "height": 320
+  },
+  "faculty4": {
+    "url": "https://picsum.photos/seed/ccm-faculty-4/320/320",
+    "alt": "Faculty member at City College of Management, Lucknow [replace with official photo]",
+    "width": 320,
+    "height": 320
+  },
+  "newsAdmission": {
+    "url": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&h=560&q=70",
+    "alt": "Applicant filling in an admission form for City College of Management, Lucknow",
+    "width": 1000,
+    "height": 560
+  },
+  "newsEvent": {
+    "url": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&h=560&q=70",
+    "alt": "Audience at a function in the seminar hall, City College of Management, Lucknow",
+    "width": 1000,
+    "height": 560
+  },
+  "newsResult": {
+    "url": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1000&h=560&q=70",
+    "alt": "Stack of study books at City College of Management, Lucknow",
+    "width": 1000,
+    "height": 560
+  },
+  "blogCourses": {
+    "url": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&h=560&q=70",
+    "alt": "Students discussing BBA, BCA and B.Com options at City College of Management, Lucknow",
+    "width": 1000,
+    "height": 560
+  },
+  "blogBed": {
+    "url": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&h=560&q=70",
+    "alt": "B.Ed trainee teaching in a school classroom, City College of Management, Lucknow",
+    "width": 1000,
+    "height": 560
+  },
+  "blogAgriculture": {
+    "url": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1000&h=560&q=70",
+    "alt": "B.Sc Agriculture field work in a paddy field, City College of Management, Lucknow",
+    "width": 1000,
+    "height": 560
+  },
+  "gallery": [
+    {
+      "key": "campus-building",
+      "album": "Campus",
+      "url": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Main building of City College of Management, Faizabad Road, Chinhat, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "campus-cafeteria",
+      "album": "Campus",
+      "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Cafeteria on the campus of City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "campus-hostel",
+      "album": "Campus",
+      "url": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Hostel room for students of City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "classroom",
+      "album": "Classrooms & Labs",
+      "url": "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Classroom in session at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "bca-computer-lab",
+      "album": "Classrooms & Labs",
+      "url": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "BCA students in the computer lab at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "library",
+      "album": "Classrooms & Labs",
+      "url": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Library book shelves at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "lecture-hall",
+      "album": "Classrooms & Labs",
+      "url": "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Lecture hall at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "teacher-education-lab",
+      "album": "Classrooms & Labs",
+      "url": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "ICT lab session for B.Ed and D.El.Ed trainees at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "agriculture-field-work",
+      "album": "Agriculture",
+      "url": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "B.Sc Agriculture students during field work at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "agriculture-crops",
+      "album": "Agriculture",
+      "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Crops grown on the agriculture field at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "teaching-practice-school",
+      "album": "Teaching Practice",
+      "url": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "B.Ed trainee teaching a school class during the internship, City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "teaching-practice-primary",
+      "album": "Teaching Practice",
+      "url": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "D.El.Ed trainee teaching primary school children, City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "teaching-aids",
+      "album": "Teaching Practice",
+      "url": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Teaching aids prepared by D.El.Ed trainees at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "annual-function",
+      "album": "Events",
+      "url": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Annual function in the seminar hall at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "workshop",
+      "album": "Events",
+      "url": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Workshop for students at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "sports-athletics",
+      "album": "Sports",
+      "url": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Athletics at the sports meet, City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "sports-football",
+      "album": "Sports",
+      "url": "https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Football at the annual sports meet, City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "convocation",
+      "album": "Convocation & Achievements",
+      "url": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Graduating students celebrating at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    },
+    {
+      "key": "examination",
+      "album": "Convocation & Achievements",
+      "url": "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=900&h=675&q=70",
+      "alt": "Student writing an examination at City College of Management, Lucknow",
+      "width": 900,
+      "height": 675
+    }
+  ],
+  "videos": [
+    {
+      "title": "Campus tour of City College of Management, Lucknow",
+      "youtubeId": "[YouTube video ID]"
+    },
+    {
+      "title": "Event highlights, City College of Management, Lucknow",
+      "youtubeId": "[YouTube video ID]"
+    },
+    {
+      "title": "Student testimonials, City College of Management, Lucknow",
+      "youtubeId": "[YouTube video ID]"
+    }
+  ]
+}

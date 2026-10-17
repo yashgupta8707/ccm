@@ -1,0 +1,17 @@
+{#- Closing call-to-action strip. Override `ctaHeading` / `ctaText` per page. -#}
+<section class="section cta" aria-labelledby="cta-head">
+  <div class="wrap cta__inner reveal">
+    <div>
+      <h2 id="cta-head">{{ ctaHeading or 'Visit the campus or start your application' }}</h2>
+      <p>{{ ctaText or ('Admissions for ' + site.admissionSession + ' are open for all seven programmes. Our admission team is happy to answer your questions.') }}</p>
+    </div>
+    <p class="cta__actions">
+      <a class="btn btn--primary btn--lg" href="/admissions/#apply">Apply Now</a>
+      <a class="btn btn--ghost btn--lg" href="{{ site.phoneHref }}" data-track="call">Call {{ site.phone | ph | safe }}</a>
+      <a class="btn btn--ghost btn--lg" href="{{ site.whatsappHref }}" data-track="whatsapp">WhatsApp Us</a>
+      {%- if ctaVisit %}
+      <a class="btn btn--ghost btn--lg" href="/contact/#enquiry">Book a Campus Visit</a>
+      {%- endif %}
+    </p>
+  </div>
+</section>

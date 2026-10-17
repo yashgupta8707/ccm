@@ -1,0 +1,19 @@
+{#- Renders the FAQ list for any page that sets `faqs` in its front matter.
+    The same array feeds the FAQPage schema in partials/schema.njk, so the
+    questions on screen and in search results can never drift apart.
+    <details> keeps the answers readable with JavaScript switched off. -#}
+{%- set faqList = faqs or programme.faqs %}
+<section class="section" id="faqs" aria-labelledby="faqs-head">
+  <div class="wrap">
+    <h2 id="faqs-head">{{ faqHeading or 'Frequently asked questions' }}</h2>
+    {%- if faqIntro %}<p class="lede">{{ faqIntro | ph | safe }}</p>{% endif %}
+    <div class="faq reveal">
+      {%- for item in faqList %}
+      <details class="faq__item"{% if loop.first %} open{% endif %}>
+        <summary><span>{{ item.q | ph | safe }}</span></summary>
+        <div class="faq__answer"><p>{{ item.a | ph | safe }}</p></div>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

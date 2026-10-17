@@ -1,0 +1,64 @@
+# City College of Management — Apache configuration for the rebuilt site.
+# 301 redirects from the old citycollegemanagement.com URLs, one canonical
+# host, and sensible caching for a static build.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- One canonical host and scheme: https, no www -----------------------
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # --- Old pages to new pages --------------------------------------------
+  RewriteRule ^index\.html$              /                     [R=301,L]
+  RewriteRule ^about\.html$              /about/               [R=301,L]
+  RewriteRule ^course\.html$             /courses/             [R=301,L]
+  RewriteRule ^beyond-academics\.html$   /campus-life/         [R=301,L]
+  RewriteRule ^faculty\.html$            /about/#leadership    [R=301,L]
+  RewriteRule ^contact\.html$            /contact/             [R=301,L]
+  RewriteRule ^founder-message\.html$    /about/#founder       [R=301,L]
+  RewriteRule ^director-message\.html$   /about/#director       [R=301,L]
+  RewriteRule ^online_registration\.php$ /admissions/#apply    [R=301,L]
+
+  # --- Clean folder URLs: serve /path/ from /path/index.html --------------
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+</IfModule>
+
+# --- Error pages ----------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# --- Compression ----------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# --- Caching --------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 1 hour"
+  ExpiresByType text/css                  "access plus 1 month"
+  ExpiresByType application/javascript    "access plus 1 month"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType application/pdf           "access plus 1 week"
+</IfModule>
+
+# --- Security headers -----------------------------------------------------
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# Keep directory listings off.
+Options -Indexes

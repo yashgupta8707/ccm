@@ -1,0 +1,24 @@
+---
+pagination:
+  data: programmes
+  size: 1
+  alias: programme
+  # Without this Eleventy puts only the first programme in collections.all,
+  # and the other six would be missing from sitemap.xml.
+  addAllPagesToCollections: true
+layout: layouts/programme.njk
+permalink: "/courses/{{ programme.slug }}/"
+eleventyComputed:
+  title: "{{ programme.name }}"
+  metaTitle: "{{ programme.meta.title }}"
+  metaDescription: "{{ programme.meta.description }}"
+  h1: "{{ programme.h1 }}"
+  ogImage: "{{ images[programme.image].url }}"
+  ogImageAlt: "{{ images[programme.image].alt }}"
+  breadcrumb:
+    - label: Courses
+      url: /courses/
+    - label: "{{ programme.name }}"
+  ctaHeading: "Apply for {{ programme.name }} in the {{ site.admissionSession }} session"
+  ctaText: "Our admission team can confirm eligibility, fees and dates for {{ programme.name }} ({{ programme.duration }}, {{ programme.affiliation }})."
+---

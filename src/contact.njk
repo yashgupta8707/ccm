@@ -1,0 +1,112 @@
+---
+layout: layouts/page.njk
+permalink: /contact/
+title: Contact
+metaTitle: "Contact City College of Management – Chinhat, Lucknow"
+metaDescription: "Visit City College of Management on Faizabad Road, Tiwariganj, Chinhat, near Crown Mall, Lucknow. Call [helpline], WhatsApp or email the admission team."
+h1: Contact City College of Management
+intro: "Tiwariganj, Faizabad Road, Chinhat, Lucknow — near Crown Mall. Call, WhatsApp, email or send us a message."
+schemaCollege: true
+breadcrumb:
+  - label: Contact
+hideCta: true
+---
+{# 1. Contact details — the wording here must match the footer, site.json and
+     the Google Business Profile word for word. #}
+<section class="section" id="details" aria-labelledby="get-head">
+  <div class="wrap">
+    <h2 id="get-head">Get in touch</h2>
+    <ul class="cards cards--3 reveal">
+      <li class="card">
+        <h3>Visit us</h3>
+        <address style="font-style:normal">
+          <p>{{ site.name }},<br>{{ site.address.street }},<br>{{ site.address.locality }},<br>{{ site.address.region }} {{ site.address.postalCode | ph | safe }}</p>
+          <p class="small muted">{{ site.address.landmark }}</p>
+        </address>
+        <p><a class="btn btn--primary btn--sm" href="{{ site.mapDirections }}" target="_blank" rel="noopener">Get Directions</a></p>
+      </li>
+      <li class="card">
+        <h3>Call or WhatsApp</h3>
+        <p>
+          Admission helpline: <a href="{{ site.phoneHref }}" data-track="call">{{ site.phone | ph | safe }}</a><br>
+          WhatsApp: <a href="{{ site.whatsappHref }}" data-track="whatsapp">{{ site.whatsapp | ph | safe }}</a><br>
+          Office: {{ site.officePhone | ph | safe }}
+        </p>
+        <p>
+          <a class="btn btn--primary btn--sm" href="{{ site.phoneHref }}" data-track="call">Call now</a>
+          <a class="btn btn--ghost btn--sm" href="{{ site.whatsappHref }}" data-track="whatsapp">WhatsApp</a>
+        </p>
+      </li>
+      <li class="card">
+        <h3>Email</h3>
+        <p>
+          Admissions: <a href="{{ site.emailHref }}">{{ site.email | ph | safe }}</a><br>
+          General: {{ site.infoEmail | ph | safe }}
+        </p>
+        <p class="small muted">Office hours: {{ site.officeHours | ph | safe }}</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+{# 2. Admission Team #}
+<section class="section section--alt" id="team" aria-labelledby="team-head">
+  <div class="wrap">
+    <h2 id="team-head">Talk to our admission counsellors</h2>
+    <ul class="people people--3 reveal">
+      {%- set counsellors = [
+        { img: 'counsellor1', handles: 'BBA, BCA, B.Com' },
+        { img: 'counsellor2', handles: 'B.Sc Agriculture' },
+        { img: 'counsellor3', handles: 'B.Ed, M.Ed, D.El.Ed' }
+      ] %}
+      {%- for c in counsellors %}
+      {%- set cimg = images[c.img] %}
+      <li class="person">
+        <img src="{{ cimg.url }}" alt="{{ cimg.alt }}" width="{{ cimg.width }}" height="{{ cimg.height }}" loading="lazy">
+        <h3><span class="ph">[Counsellor name]</span></h3>
+        <p class="person__role">Handles {{ c.handles }}</p>
+        <p class="small">Languages: <span class="ph">[Hindi, English]</span></p>
+        <p class="counsellor__actions" style="margin-top:var(--sp-3)">
+          <a class="btn btn--primary btn--sm" href="{{ site.phoneHref }}" data-track="call">Call</a>
+          <a class="btn btn--ghost btn--sm" href="{{ site.whatsappHref }}" data-track="whatsapp">WhatsApp</a>
+        </p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{# 3. Enquiry form #}
+<section class="section" id="enquiry" aria-labelledby="enq-head">
+  <div class="wrap">
+    <h2 id="enq-head">Send us a message</h2>
+    <div class="cols cols--enquiry reveal">
+      <aside class="card">
+        <h3>How to reach us</h3>
+        <p>The campus is on Faizabad Road in Chinhat, near Crown Mall, <span class="ph">[distance]</span> from <span class="ph">[Polytechnic Chauraha / Matiyari Chauraha — confirm landmark]</span>. <span class="ph">[City buses / college transport routes]</span>.</p>
+        <p class="small muted">Planning a campus visit? Mention your preferred day in the message and we will confirm.</p>
+        <p><a class="link-arrow" href="/admissions/">Admissions {{ site.admissionSession }}</a></p>
+      </aside>
+      <div class="card">
+        {%- set formId = 'contact' %}
+        {%- set formHeading = 'Enquiry form' %}
+        {%- set formButton = 'Send Message' %}
+        {% include "partials/form.njk" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# 4. Map — the pin uses exactly the name "City College of Management". #}
+<section class="section section--alt" id="map" aria-labelledby="map-head">
+  <div class="wrap">
+    <h2 id="map-head">Find us on the map</h2>
+  </div>
+  <iframe class="map" src="{{ site.mapEmbed }}" title="Map showing {{ site.name }}, Tiwariganj, Faizabad Road, Chinhat, Lucknow"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="wrap" style="padding-top:var(--sp-5)">
+    <h3>How to reach us</h3>
+    <p>The campus is on Faizabad Road in Chinhat, near Crown Mall, <span class="ph">[distance]</span> from <span class="ph">[Polytechnic Chauraha / Matiyari Chauraha — confirm landmark]</span>. <span class="ph">[City buses / college transport routes]</span>.</p>
+    <p class="small muted"><span class="ph">[Confirm the map pin, the coordinates in site.json and the Google Business Profile all use the name "City College of Management" and this exact address]</span></p>
+  </div>
+</section>

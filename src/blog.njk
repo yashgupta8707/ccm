@@ -1,0 +1,69 @@
+---
+layout: layouts/page.njk
+permalink: /blog/
+title: Blog
+metaTitle: "Career & Admission Guides – CCM Lucknow Blog"
+metaDescription: "Guides on courses after 12th, BBA vs BCA, B.Ed and D.El.Ed admission in UP, scholarships and careers, from City College of Management, Lucknow."
+h1: Career & Admission Guides
+intro: "Practical guides for students in Lucknow and across Uttar Pradesh: choosing a course after 12th, teacher-education routes, scholarships and careers."
+breadcrumb:
+  - label: Blog
+---
+<section class="section" aria-labelledby="posts-head">
+  <div class="wrap">
+    <h2 id="posts-head" class="sr-only">All articles</h2>
+    <ul class="posts posts--3 reveal">
+      {%- for post in collections.blog %}
+      {%- set nimg = images[post.data.image] %}
+      <li class="post-card">
+        {%- if nimg %}<img src="{{ nimg.url }}" alt="{{ nimg.alt }}" width="{{ nimg.width }}" height="{{ nimg.height }}" loading="lazy">{% endif %}
+        <div class="post-card__body">
+          <p class="post-card__meta"><time datetime="{{ post.date | dateISO }}">{{ post.date | dateLong }}</time>{% if post.data.author %} &middot; {{ post.data.author }}{% endif %}</p>
+          <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+          <p>{{ post.data.intro | excerpt(140) }}</p>
+          <a class="link-arrow" href="{{ post.url }}">Read the guide</a>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="planned-head">
+  <div class="wrap">
+    <h2 id="planned-head">Articles planned next</h2>
+    <p class="lede">One or two posts a month, heaviest from February to July, each linking to at least one programme page. <span class="ph">[Write these as Markdown files in src/blog/]</span></p>
+    <div class="tablewrap reveal">
+      <table class="table table--compact">
+        <thead><tr><th scope="col">#</th><th scope="col">Title</th><th scope="col">Links to</th></tr></thead>
+        <tbody>
+          {%- set plan = [
+            { t: 'BBA vs BCA vs B.Com: Which Course to Choose After 12th?', l: ['bba','bca','bcom'] },
+            { t: 'Courses After 12th Commerce in Lucknow', l: ['bcom','bba','bca'] },
+            { t: 'Is BCA a Good Career Choice in 2027?', l: ['bca'] },
+            { t: 'B.Sc Agriculture: Scope, Jobs and Salary in Uttar Pradesh', l: ['bsc-agriculture'] },
+            { t: 'UP B.Ed JEE 2027: Exam, Counselling and Choosing a College', l: ['bed'] },
+            { t: 'D.El.Ed (BTC) Admission in UP: Eligibility and Process', l: ['deled'] },
+            { t: 'B.Ed vs D.El.Ed: Which Teaching Course Is Right for You?', l: ['bed','deled'] },
+            { t: 'CTET and UPTET: A Guide for B.Ed and D.El.Ed Students', l: ['bed','deled'] },
+            { t: 'Career Options After BBA', l: ['bba'] },
+            { t: 'Documents Required for College Admission in Lucknow', l: [] },
+            { t: 'UP Scholarship for College Students: How to Apply', l: [] },
+            { t: 'What Is M.Ed and Who Should Study It?', l: ['med'] }
+          ] %}
+          {%- for row in plan %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <th scope="row">{{ row.t }}</th>
+            <td>
+              {%- if row.l.length %}
+              {%- for slug in row.l %}{% set isLast = loop.last %}{% for p in programmes %}{% if p.slug == slug %}<a href="/courses/{{ p.slug }}/">{{ p.name }}</a>{{ ", " if not isLast }}{% endif %}{% endfor %}{% endfor %}
+              {%- else %}<a href="/admissions/">Admissions</a>{% endif %}
+            </td>
+          </tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

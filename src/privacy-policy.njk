@@ -1,0 +1,54 @@
+---
+layout: layouts/page.njk
+permalink: /privacy-policy/
+title: Privacy Policy
+metaTitle: "Privacy Policy – City College of Management"
+metaDescription: "How City College of Management collects, uses and protects personal information submitted through its website and admission forms."
+h1: Privacy Policy
+intro: "This policy explains what we collect through this website, why we collect it, and how to ask us to delete it."
+breadcrumb:
+  - label: Privacy Policy
+hideCta: true
+---
+<section class="section" aria-labelledby="pp-head">
+  <div class="wrap wrap--prose prose reveal">
+    <h2 id="pp-head">What we collect</h2>
+    <p>When you use an enquiry or application form on this site we collect the details you enter: your name, mobile number, email address if you give one, the programme you are interested in, your city and your message. We also record which page the form was submitted from, so we know which programme you were reading about.</p>
+    <p>Like most websites, we collect anonymous usage statistics (pages visited, approximate location, device and browser) through Google Analytics. These statistics do not identify you by name.</p>
+
+    <h2>Why we use it</h2>
+    <ul>
+      <li>To answer your admission enquiry by phone, WhatsApp, SMS or email.</li>
+      <li>To send you information about the programme you asked about, and about admission dates for the {{ site.admissionSession }} session.</li>
+      <li>To process your application if you decide to apply.</li>
+      <li>To improve the website and understand which information students look for.</li>
+    </ul>
+
+    <h2>Consent</h2>
+    <p>Every form asks you to confirm that you agree to be contacted by the college about admissions. You can withdraw that consent at any time by telling us on the number or email below, and we will stop contacting you.</p>
+
+    <h2>How it is stored</h2>
+    <p>Enquiries are held in the college's admission records and admission CRM, and are accessible only to staff who need them for admissions. <span class="ph">[Name the CRM or email service used, and the retention period, for example two admission sessions]</span></p>
+
+    <h2>Who it is shared with</h2>
+    <p>We do not sell or rent your details. We do not share them outside {{ site.parentOrganization }}, except where we are required to by a university, a regulator such as NCTE, or by law.</p>
+
+    <h2>Cookies</h2>
+    <p>This site sets no advertising cookies of its own. Google Analytics and any embedded Google Map or YouTube video may set their own cookies, governed by Google's privacy policy. <span class="ph">[Add a cookie banner if the college needs consent for analytics in its target markets]</span></p>
+
+    <h2>Your rights</h2>
+    <p>You can ask us what we hold about you, ask us to correct it, or ask us to delete it. Write to <a href="{{ site.emailHref }}">{{ site.email | ph | safe }}</a> or call <a href="{{ site.phoneHref }}" data-track="call">{{ site.phone | ph | safe }}</a> during office hours ({{ site.officeHours | ph | safe }}).</p>
+
+    <h2>Children</h2>
+    <p>Applicants under 18 should submit forms with a parent's or guardian's knowledge.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We update this page when our practices change. <span class="ph">[Last updated: date]</span></p>
+
+    <h2>Contact</h2>
+    <address style="font-style:normal">
+      <p>{{ site.name }},<br>{{ site.address.street }}, {{ site.address.locality }},<br>{{ site.address.region }} {{ site.address.postalCode | ph | safe }}<br>
+      {{ site.phone | ph | safe }} &middot; {{ site.email | ph | safe }}</p>
+    </address>
+  </div>
+</section>

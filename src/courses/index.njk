@@ -1,0 +1,85 @@
+---
+layout: layouts/page.njk
+permalink: /courses/
+title: Courses
+metaTitle: "Courses in Lucknow: BBA, BCA, B.Com, B.Sc Ag, B.Ed | CCM"
+metaDescription: "Explore 7 programmes at City College of Management, Lucknow: BBA, BCA, B.Com, B.Sc Agriculture (LU) and B.Ed, M.Ed, D.El.Ed (NCTE). Duration, eligibility, fees."
+h1: Courses Offered at City College of Management
+breadcrumb:
+  - label: Courses
+ctaHeading: "Not sure which programme suits you?"
+ctaText: Talk to our admission counsellor. We will help you compare eligibility, fees and careers.
+---
+<section class="section" aria-labelledby="intro-head">
+  <div class="wrap">
+    <h2 id="intro-head" class="sr-only">About our programmes</h2>
+    <p class="lede">{{ site.name }} offers seven full-time programmes across three streams. Undergraduate degrees in management, computer applications, commerce and agriculture are affiliated to the {{ site.affiliation.university }}. Teacher-education programmes are recognised by the National Council for Teacher Education. Choose a programme below to see its eligibility, syllabus, fees and career options.</p>
+
+    {# Filter buttons. Without JavaScript every card simply stays visible. #}
+    <div class="filters" data-filter-target="#courseCards" role="group" aria-label="Filter programmes">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="after-12th" aria-pressed="false">After 12th</button>
+      <button type="button" data-filter="after-graduation" aria-pressed="false">After Graduation</button>
+      <button type="button" data-filter="teacher-education" aria-pressed="false">Teacher Education</button>
+    </div>
+
+    <ul class="cards cards--3 reveal" id="courseCards">
+      {%- for p in programmes %}
+      {%- set pimg = images[p.image] %}
+      <li class="card card--media card--prog" data-tags="{{ p.filters | join(' ') }}">
+        <img src="{{ pimg.url }}" alt="{{ pimg.alt }}" width="{{ pimg.width }}" height="{{ pimg.height }}" loading="lazy">
+        <div class="card__body">
+          <p class="eyebrow">{{ p.stream }}</p>
+          <h3><a href="/courses/{{ p.slug }}/">{{ p.name }}</a></h3>
+          <p class="small muted">{{ p.fullName }}</p>
+          <p class="badges">
+            <span class="badge">{{ p.duration }}</span>
+            <span class="badge badge--accent">{{ p.affiliation }}</span>
+          </p>
+          <p>{{ p.summary }}</p>
+          <p><strong>Eligibility:</strong> {{ p.eligibilityShort | ph | safe }}</p>
+          <a class="link-arrow" href="/courses/{{ p.slug }}/">View {{ p.name }} details</a>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="compare-head">
+  <div class="wrap">
+    <h2 id="compare-head">Compare our programmes</h2>
+    <div class="tablewrap reveal">
+      <table class="table">
+        <caption>All seven programmes at {{ site.name }}, Chinhat, Lucknow. <span class="ph">[Confirm fees and eligibility with the admission office before publishing]</span></caption>
+        <thead>
+          <tr>
+            <th scope="col">Programme</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Eligibility</th>
+            <th scope="col">Affiliation / recognition</th>
+            <th scope="col">Annual fee</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for p in programmes %}
+          <tr>
+            <th scope="row">{{ p.name }}</th>
+            <td>{{ p.duration }}</td>
+            <td>{{ p.eligibilityShort | ph | safe }}</td>
+            <td>{{ p.affiliation }}</td>
+            <td>{{ p.fee | ph | safe }}</td>
+            <td><a href="/courses/{{ p.slug }}/">View</a></td>
+          </tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:var(--sp-5)">
+      <a class="btn btn--primary" href="/admissions/">Admissions {{ site.admissionSession }}</a>
+      <a class="btn btn--ghost" href="{{ site.phoneHref }}" data-track="call">Call an admission counsellor</a>
+      <a class="btn btn--ghost" href="{{ site.whatsappHref }}" data-track="whatsapp">WhatsApp</a>
+    </p>
+  </div>
+</section>

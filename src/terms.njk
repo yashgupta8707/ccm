@@ -1,0 +1,40 @@
+---
+layout: layouts/page.njk
+permalink: /terms/
+title: Terms of Use
+metaTitle: "Terms of Use – City College of Management"
+metaDescription: "Terms governing use of the City College of Management website, Lucknow: website use, content ownership, external links and liability. Read before you apply."
+h1: Terms of Use
+intro: "By using this website you accept these terms."
+breadcrumb:
+  - label: Terms of Use
+hideCta: true
+---
+<section class="section" aria-labelledby="tc-head">
+  <div class="wrap wrap--prose prose reveal">
+    <h2 id="tc-head">Use of this website</h2>
+    <p>This website is published by {{ site.name }}, {{ site.address.locality }}, a unit of {{ site.parentOrganization }}. You may read, print and share its pages for your own information, including for deciding where to study. You may not use the site to send unlawful, misleading or abusive material, or attempt to disrupt its operation.</p>
+
+    <h2>Accuracy of information</h2>
+    <p>We work to keep course details, eligibility, fees and dates correct and current. Programmes, fees, syllabi and admission procedures are governed by the {{ site.affiliation.university }}, the National Council for Teacher Education and the Government of Uttar Pradesh, and can change during a session. Where this site and an official order or university notification differ, the official document applies. Confirm anything you are relying on with the admission office before you act on it.</p>
+
+    <h2>Content ownership</h2>
+    <p>The text, photographs, logo and design on this site belong to {{ site.name }} or are used with permission, and are protected by copyright. Do not reproduce them commercially, or use the college name or logo to suggest an association that does not exist, without written permission. <span class="ph">[Some photographs on this site are placeholders licensed from stock libraries and are to be replaced with the college's own images.]</span></p>
+
+    <h2>Links to other sites</h2>
+    <p>We link to the {{ site.affiliation.university }}, NCTE, state admission portals, the state scholarship portal and {{ site.parentOrganization }}. Those sites are run by other organisations and we are not responsible for their content or availability.</p>
+
+    <h2>Forms and enquiries</h2>
+    <p>Submitting an enquiry or application form does not create a seat, an admission or any obligation on the college. Admission is confirmed only when the college issues it in writing, after eligibility and documents are verified and the fee is paid. Use of your details is covered by our <a href="/privacy-policy/">Privacy Policy</a>, and fees are covered by the <a href="/refund-policy/">Fee Refund Policy</a>.</p>
+
+    <h2>Limitation of liability</h2>
+    <p>The site is provided as it is. To the extent permitted by law, the college is not liable for loss arising from use of this site, from reliance on information that has since changed, or from any interruption to the site.</p>
+
+    <h2>Governing law</h2>
+    <p>These terms are governed by the laws of India. Disputes are subject to the jurisdiction of the courts at Lucknow, Uttar Pradesh.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about these terms: <a href="{{ site.emailHref }}">{{ site.email | ph | safe }}</a> &middot; <a href="{{ site.phoneHref }}" data-track="call">{{ site.phone | ph | safe }}</a></p>
+    <p class="small muted"><span class="ph">[Last updated: date]</span></p>
+  </div>
+</section>

@@ -1,0 +1,254 @@
+---
+layout: layouts/page.njk
+permalink: /admissions/
+title: Admissions
+metaTitle: "Admission 2027-28 Open – BBA, BCA, B.Ed in Lucknow | CCM"
+metaDescription: "Admissions open for 2027-28 at City College of Management, Lucknow. Eligibility, important dates, documents, fees and scholarships. Apply online or call us."
+h1: Admissions 2027-28 at City College of Management
+pageHeadActions: true
+breadcrumb:
+  - label: Admissions
+subnav:
+  - { id: how-to-apply, label: How to Apply }
+  - { id: eligibility, label: Eligibility }
+  - { id: dates, label: Important Dates }
+  - { id: fees, label: Fees }
+  - { id: scholarships, label: Scholarships }
+  - { id: documents, label: Documents }
+  - { id: team, label: Admission Team }
+  - { id: faqs, label: FAQs }
+  - { id: apply, label: Apply }
+faqHeading: Admission FAQs
+faqs:
+  - q: Is there an entrance exam for BBA, BCA or B.Com?
+    a: "[Admission is on merit as per University of Lucknow norms — confirm]."
+  - q: How do I get admission to B.Ed at City College of Management?
+    a: "Through the UP B.Ed JEE counselling, choosing the college code [code]."
+  - q: Is hostel facility available?
+    a: "[Yes / No; for boys / girls]."
+  - q: Are scholarships available?
+    a: Yes, eligible students can apply for UP government scholarships with the college's help.
+  - q: Can I visit the campus before applying?
+    a: "Yes, campus visits are welcome from [days and times]."
+hideCta: true
+---
+<section class="section" aria-labelledby="intro-head">
+  <div class="wrap">
+    <h2 id="intro-head" class="sr-only">Admissions overview</h2>
+    <p class="lede">Admissions for the {{ site.admissionSession }} session are open for all seven programmes. Admission to BBA, BCA, B.Com and B.Sc Agriculture is made directly by the college as per {{ site.affiliation.university }} norms. Admission to B.Ed, M.Ed and D.El.Ed is made through the state counselling and entrance processes. The sections below explain each route step by step.</p>
+  </div>
+</section>
+
+{# 2. How to Apply — two routes side by side. #}
+<section class="section section--alt" id="how-to-apply" aria-labelledby="how-head">
+  <div class="wrap">
+    <h2 id="how-head">How to apply</h2>
+    <div class="cols cols--2 reveal">
+      <div class="card">
+        <h3>Direct admission</h3>
+        <p class="badges">
+          {%- for p in programmes %}{% if 'after-12th' in p.filters %}
+          <span class="badge">{{ p.name }}</span>
+          {% endif %}{% endfor %}
+        </p>
+        <ol class="steps">
+          <li>Fill in the online enquiry or application form.</li>
+          <li>Our admission counsellor contacts you within one working day.</li>
+          <li>Visit the campus for counselling and document verification.</li>
+          <li>Pay the admission fee and confirm your seat.</li>
+        </ol>
+        <p><a class="btn btn--primary btn--sm" href="#apply">Fill the application form</a></p>
+      </div>
+      <div class="card">
+        <h3>Counselling route</h3>
+        <p class="badges">
+          {%- for p in programmes %}{% if 'teacher-education' in p.filters %}
+          <span class="badge">{{ p.name }}</span>
+          {% endif %}{% endfor %}
+        </p>
+        <ol class="steps">
+          <li>Apply for the state entrance or counselling (<span class="ph">[UP B.Ed JEE / D.El.Ed online application / M.Ed process]</span>).</li>
+          <li>In counselling, choose {{ site.name }} (college code <span class="ph">[code]</span>).</li>
+          <li>Report to the college with your allotment letter.</li>
+          <li>Complete document verification and fee payment.</li>
+        </ol>
+        <p><a class="btn btn--ghost btn--sm" href="/courses/bed/">B.Ed admission details</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# 3. Eligibility — the same table as the Courses page, from programmes.json. #}
+<section class="section" id="eligibility" aria-labelledby="elig-head">
+  <div class="wrap">
+    <h2 id="elig-head">Eligibility</h2>
+    <div class="tablewrap reveal">
+      <table class="table">
+        <caption>Eligibility for each programme. <span class="ph">[Confirm minimum percentages with the affiliating body]</span></caption>
+        <thead>
+          <tr>
+            <th scope="col">Programme</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Eligibility</th>
+            <th scope="col">Affiliation / recognition</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for p in programmes %}
+          <tr>
+            <th scope="row">{{ p.name }}</th>
+            <td>{{ p.duration }}</td>
+            <td>{{ p.eligibilityShort | ph | safe }}</td>
+            <td>{{ p.affiliation }}</td>
+            <td><a href="/courses/{{ p.slug }}/">{{ p.name }} page</a></td>
+          </tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{# 4. Important Dates #}
+<section class="section section--alt" id="dates" aria-labelledby="dates-head">
+  <div class="wrap">
+    <h2 id="dates-head">Important dates</h2>
+    <p class="lede"><span class="ph">[Update these dates at the start of every admission session]</span></p>
+    <div class="tablewrap reveal">
+      <table class="table table--compact">
+        <thead>
+          <tr><th scope="col">Event</th><th scope="col">Date</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Applications open</th><td><span class="ph">[date]</span></td></tr>
+          <tr><th scope="row">Last date to apply</th><td><span class="ph">[date]</span></td></tr>
+          <tr><th scope="row">Merit list / counselling</th><td><span class="ph">[date]</span></td></tr>
+          <tr><th scope="row">Document verification</th><td><span class="ph">[date]</span></td></tr>
+          <tr><th scope="row">Classes begin</th><td><span class="ph">[date]</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{# 5. Fee Structure #}
+<section class="section" id="fees" aria-labelledby="fees-head">
+  <div class="wrap">
+    <h2 id="fees-head">Fee structure</h2>
+    <div class="tablewrap reveal">
+      <table class="table">
+        <caption>Programme-wise fees for {{ site.admissionSession }}. <span class="ph">[Confirm every figure with the accounts office before publishing]</span></caption>
+        <thead>
+          <tr>
+            <th scope="col">Programme</th>
+            <th scope="col">Annual tuition</th>
+            <th scope="col">Examination fee</th>
+            <th scope="col">Other charges</th>
+            <th scope="col">Total per year</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for p in programmes %}
+          <tr>
+            <th scope="row"><a href="/courses/{{ p.slug }}/">{{ p.name }}</a></th>
+            <td><span class="ph">[fee]</span></td>
+            <td><span class="ph">[fee]</span></td>
+            <td><span class="ph">[fee]</span></td>
+            <td><span class="ph">[total]</span></td>
+          </tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p><a class="link-arrow" href="/assets/docs/ccm-fee-structure.pdf">Download fee structure (PDF)</a>
+      <span class="ph">[Upload the signed fee structure to /assets/docs/ccm-fee-structure.pdf]</span></p>
+    <p class="small"><a href="/refund-policy/">Read the fee refund policy</a></p>
+  </div>
+</section>
+
+{# 6. Scholarships #}
+<section class="section section--alt" id="scholarships" aria-labelledby="schol-head">
+  <div class="wrap wrap--prose reveal">
+    <h2 id="schol-head">Scholarships &amp; concessions</h2>
+    <p>Eligible students can apply for Uttar Pradesh government scholarships and fee reimbursement for SC, ST, OBC, minority and general-category students from economically weaker families, through the state scholarship portal. The college helps students complete their applications.</p>
+    <p class="callout"><span class="ph">[Add any college merit or sibling concessions]</span></p>
+  </div>
+</section>
+
+{# 7. Documents Required #}
+<section class="section" id="documents" aria-labelledby="docs-head">
+  <div class="wrap">
+    <h2 id="docs-head">Documents required</h2>
+    <ul class="ticklist reveal">
+      <li>Class 10 marksheet and certificate</li>
+      <li>Class 12 marksheet and certificate</li>
+      <li>Graduation marksheets and degree (for B.Ed, M.Ed, D.El.Ed)</li>
+      <li>B.Ed marksheets and degree (for M.Ed)</li>
+      <li>Transfer certificate and character certificate from the last institution</li>
+      <li>Migration certificate (for students from other universities or boards)</li>
+      <li>Caste, income and domicile certificates (where applicable)</li>
+      <li>Aadhaar card</li>
+      <li>Entrance or counselling allotment letter (for B.Ed, M.Ed, D.El.Ed)</li>
+      <li>Recent passport-size photographs</li>
+    </ul>
+  </div>
+</section>
+
+{# 8. Meet the Admission Team #}
+<section class="section section--alt" id="team" aria-labelledby="team-head">
+  <div class="wrap">
+    <h2 id="team-head">Meet the admission team</h2>
+    <ul class="people people--3 reveal">
+      {%- set counsellors = [
+        { img: 'counsellor1', handles: 'BBA, BCA, B.Com' },
+        { img: 'counsellor2', handles: 'B.Sc Agriculture' },
+        { img: 'counsellor3', handles: 'B.Ed, M.Ed, D.El.Ed' }
+      ] %}
+      {%- for c in counsellors %}
+      {%- set cimg = images[c.img] %}
+      <li class="person">
+        <img src="{{ cimg.url }}" alt="{{ cimg.alt }}" width="{{ cimg.width }}" height="{{ cimg.height }}" loading="lazy">
+        <h3><span class="ph">[Counsellor name]</span></h3>
+        <p class="person__role">{{ c.handles }}</p>
+        <p class="small">Languages: <span class="ph">[Hindi, English]</span></p>
+        <p class="counsellor__actions" style="margin-top:var(--sp-3)">
+          <a class="btn btn--primary btn--sm" href="{{ site.phoneHref }}" data-track="call">Call</a>
+          <a class="btn btn--ghost btn--sm" href="{{ site.whatsappHref }}" data-track="whatsapp">WhatsApp</a>
+        </p>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="small muted" style="margin-top:var(--sp-4)">Office hours: {{ site.officeHours | ph | safe }}</p>
+  </div>
+</section>
+
+{# 9. FAQs are rendered by the page layout from the front matter, with schema. #}
+
+{# 10. Apply #}
+<section class="section" id="apply" aria-labelledby="apply-head">
+  <div class="wrap">
+    <h2 id="apply-head">Apply for {{ site.admissionSession }}</h2>
+    <div class="cols cols--enquiry reveal">
+      <aside class="card">
+        <h3>Before you start</h3>
+        <ul class="ticklist" style="grid-template-columns:1fr">
+          <li>Keep your Class 10 and 12 details handy.</li>
+          <li>Use a mobile number you can be reached on.</li>
+          <li>Teacher-education applicants should also apply through the state process.</li>
+        </ul>
+        <p class="small muted">After you submit, we confirm by phone or WhatsApp, usually within one working day. <span class="ph">[An SMS or WhatsApp confirmation and a CRM entry tagged with programme and source are set up by the CRM provider]</span></p>
+        <p>
+          <a class="btn btn--ghost btn--sm" href="{{ site.phoneHref }}" data-track="call">Call {{ site.phone | ph | safe }}</a>
+        </p>
+      </aside>
+      <div class="card">
+        {%- set formId = 'apply' %}
+        {%- set formHeading = 'Application form' %}
+        {%- set formButton = 'Submit Application' %}
+        {%- set formNote = 'Fields marked * are required.' %}
+        {% include "partials/form.njk" %}
+      </div>
+    </div>
+  </div>
+</section>

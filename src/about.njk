@@ -1,0 +1,180 @@
+---
+layout: layouts/page.njk
+permalink: /about/
+title: About
+metaTitle: "About City College of Management, Lucknow | Since 2008"
+metaDescription: "Established in 2008 in Chinhat, Lucknow, City College of Management offers LU-affiliated and NCTE-recognised programmes. Read our story, vision and leadership."
+h1: About City College of Management
+intro: "Established in 2008 on Faizabad Road, Chinhat, as part of City Group of Colleges, Lucknow."
+schemaCollege: true
+breadcrumb:
+  - label: About
+subnav:
+  - { id: story, label: Our Story }
+  - { id: vision, label: Vision & Mission }
+  - { id: founder, label: Founder's Message }
+  - { id: director, label: Director's Message }
+  - { id: approvals, label: Approvals }
+  - { id: leadership, label: Leadership }
+ctaHeading: Visit the campus or start your application
+ctaVisit: true
+ctaText: Come and see the campus, meet the faculty and ask us anything about admissions.
+---
+{# 1. Our Story #}
+<section class="section" id="story" aria-labelledby="story-head">
+  <div class="wrap cols cols--sidebar">
+    <div class="reveal">
+      <h2 id="story-head">Eighteen years on Faizabad Road</h2>
+      <p>{{ site.name }} was established in {{ site.established }} on Faizabad Road, Chinhat, as part of the {{ site.parentOrganization }}. It began with a simple aim: to give students in this growing part of the city access to recognised, career-focused higher education close to home.</p>
+      <p>Over eighteen years the college has grown into a multi-disciplinary campus offering seven programmes. These are four undergraduate degrees affiliated to the {{ site.affiliation.university }} (BBA, BCA, B.Com and B.Sc Agriculture), and three teacher-education programmes recognised by the National Council for Teacher Education (B.Ed, M.Ed and D.El.Ed). Its <span class="ph">[number]</span>+ alumni now work in business, information technology, banking, agriculture and schools across Uttar Pradesh.</p>
+    </div>
+    <figure class="reveal" style="margin:0">
+      <img src="{{ images.about.url }}" alt="{{ images.about.alt }}" width="{{ images.about.width }}" height="{{ images.about.height }}"
+           loading="lazy" style="border-radius:var(--radius-lg);box-shadow:var(--shadow-2)">
+    </figure>
+  </div>
+</section>
+
+{# 2. Key facts box — read from site.json, never retyped. #}
+<section class="section section--tight" aria-label="Key facts">
+  <div class="wrap">
+    <dl class="factbox reveal">
+      <div><dt>Established</dt><dd>{{ site.established }}</dd></div>
+      <div><dt>Campus</dt><dd>{{ site.campusArea | ph | safe }}</dd></div>
+      <div><dt>Programmes</dt><dd>{{ site.stats.programmes }}</dd></div>
+      <div><dt>Faculty</dt><dd>{{ site.stats.faculty | ph | safe }}</dd></div>
+      <div><dt>Students</dt><dd>{{ site.stats.students | ph | safe }}</dd></div>
+      <div><dt>Affiliation</dt><dd>{{ site.affiliation.university }} &middot; NCTE</dd></div>
+    </dl>
+  </div>
+</section>
+
+{# 3. Vision & Mission #}
+<section class="section section--alt" id="vision" aria-labelledby="vision-head">
+  <div class="wrap">
+    <h2 id="vision-head">What we are working towards</h2>
+    <div class="cols cols--2 reveal">
+      <div class="card">
+        <h3>Our Vision</h3>
+        <p>To be a trusted centre of higher education in Lucknow that prepares capable professionals, committed teachers and responsible citizens.</p>
+      </div>
+      <div class="card">
+        <h3>Our Mission</h3>
+        <ul class="ticklist" style="grid-template-columns:1fr">
+          <li>Deliver {{ site.affiliation.university }} and NCTE programmes to a high standard of teaching and assessment.</li>
+          <li>Connect classroom learning with practice through labs, field work, internships and school teaching practice.</li>
+          <li>Develop leadership, communication and ethical values alongside subject knowledge.</li>
+          <li>Keep quality education affordable and accessible to students from every background.</li>
+          <li>Support every student's progress through mentoring, career guidance and placement assistance.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# 4. Founder's Message #}
+<section class="section" id="founder" aria-labelledby="founder-head">
+  <div class="wrap cols cols--sidebar">
+    <div class="reveal">
+      <h2 id="founder-head">Mr. M. M. Srivastava, Founder</h2>
+      <p>When we founded {{ site.name }} in {{ site.established }}, our belief was simple. A good education should open doors, and it should be within reach of every capable student. That belief still guides every decision we take.</p>
+      <p>A college is judged by the character of its teachers and the achievements of its students. We have worked to build a campus where both can grow: where teachers are supported to teach well, and where students are challenged, encouraged and prepared for what comes next. There will be obstacles along the way. Determination and steady effort overcome them, and that is the lesson we hope every student takes from their years here.</p>
+      <p>I welcome you to {{ site.name }} and wish you every success.</p>
+      <p class="small muted">Mr. M. M. Srivastava<br>Founder &middot; <span class="ph">[signature image]</span></p>
+    </div>
+    <figure class="reveal" style="margin:0">
+      <img src="{{ images.founder.url }}" alt="{{ images.founder.alt }}" width="{{ images.founder.width }}" height="{{ images.founder.height }}"
+           loading="lazy" style="border-radius:var(--radius);box-shadow:var(--shadow-2)">
+      <figcaption class="small muted" style="margin-top:var(--sp-2)">Mr. M. M. Srivastava, Founder</figcaption>
+    </figure>
+  </div>
+</section>
+
+{# 5. Director's Message #}
+<section class="section section--alt" id="director" aria-labelledby="director-head">
+  <div class="wrap cols cols--sidebar">
+    <div class="reveal">
+      <h2 id="director-head">Dr. Mamta Srivastava, Director</h2>
+      <p>We live in a time of rapid change and strong competition. Employers today look for graduates who can think independently, adapt quickly and work well with others. Our programmes are designed with this in mind.</p>
+      <p>At {{ site.name }}, students learn current theory alongside practical application, whether in our computer lab, on the agriculture field, in school classrooms during teaching practice, or through internships and projects. Our faculty mentor each student closely, and our placement cell helps them take the next step.</p>
+      <p>We are committed to giving every student an outstanding learning experience from admission to graduation. I invite you to visit our campus and see it for yourself.</p>
+      <p class="small muted">Dr. Mamta Srivastava<br>Director &middot; <span class="ph">[signature image]</span></p>
+    </div>
+    <figure class="reveal" style="margin:0">
+      <img src="{{ images.director.url }}" alt="{{ images.director.alt }}" width="{{ images.director.width }}" height="{{ images.director.height }}"
+           loading="lazy" style="border-radius:var(--radius);box-shadow:var(--shadow-2)">
+      <figcaption class="small muted" style="margin-top:var(--sp-2)">Dr. Mamta Srivastava, Director</figcaption>
+    </figure>
+  </div>
+</section>
+
+{# 6. Approvals & Affiliation #}
+<section class="section" id="approvals" aria-labelledby="approvals-head">
+  <div class="wrap">
+    <h2 id="approvals-head">Approvals &amp; affiliation</h2>
+    <p class="lede">NCTE grants <em>recognition</em> to teacher-education programmes, while a university or SCERT grants <em>affiliation</em>.</p>
+    <ul class="cards cards--3 reveal">
+      <li class="card">
+        <h3>{{ site.affiliation.university }}</h3>
+        <p>BBA, BCA, B.Com and B.Sc Agriculture are affiliated to the {{ site.affiliation.university }}. <span class="ph">[Affiliation letter number and date]</span></p>
+        <p><a class="link-arrow" href="/assets/docs/affiliation-university-of-lucknow.pdf">View document</a></p>
+      </li>
+      <li class="card">
+        <h3>NCTE</h3>
+        <p>B.Ed, M.Ed and D.El.Ed are recognised by the National Council for Teacher Education. <span class="ph">[Recognition order numbers and dates]</span></p>
+        <p><a class="link-arrow" href="/assets/docs/recognition-ncte.pdf">View document</a></p>
+      </li>
+      <li class="card">
+        <h3>Affiliating body for teacher education</h3>
+        <p>B.Ed and M.Ed: {{ site.affiliation.bedAffiliatingBody | ph | safe }}<br>
+           D.El.Ed: {{ site.affiliation.deledAffiliatingBody | ph | safe }}</p>
+        <p class="small muted"><span class="ph">[Confirm per programme before publishing]</span></p>
+      </li>
+    </ul>
+    <p style="margin-top:var(--sp-5)"><a class="link-arrow" href="/mandatory-disclosure/">Read the full mandatory disclosure</a></p>
+  </div>
+</section>
+
+{# 7. Leadership & Governing Body #}
+<section class="section section--alt" id="leadership" aria-labelledby="leadership-head">
+  <div class="wrap">
+    <h2 id="leadership-head">Leadership &amp; governing body</h2>
+    <p class="lede"><span class="ph">[Add the Chairman, Founder, Director, Principal and governing body members with names, designations and one line each]</span></p>
+    <ul class="people reveal">
+      <li class="person">
+        <img src="{{ images.leader1.url }}" alt="{{ images.leader1.alt }}" width="{{ images.leader1.width }}" height="{{ images.leader1.height }}" loading="lazy">
+        <h3><span class="ph">[Chairman name]</span></h3>
+        <p class="person__role">Chairman</p>
+        <p class="small"><span class="ph">[One line]</span></p>
+      </li>
+      <li class="person">
+        <img src="{{ images.founder.url }}" alt="{{ images.founder.alt }}" width="400" height="400" loading="lazy">
+        <h3>Mr. M. M. Srivastava</h3>
+        <p class="person__role">Founder</p>
+        <p class="small"><a href="#founder">Read the Founder's message</a></p>
+      </li>
+      <li class="person">
+        <img src="{{ images.director.url }}" alt="{{ images.director.alt }}" width="400" height="400" loading="lazy">
+        <h3>Dr. Mamta Srivastava</h3>
+        <p class="person__role">Director</p>
+        <p class="small"><a href="#director">Read the Director's message</a></p>
+      </li>
+      <li class="person">
+        <img src="{{ images.leader2.url }}" alt="{{ images.leader2.alt }}" width="{{ images.leader2.width }}" height="{{ images.leader2.height }}" loading="lazy">
+        <h3><span class="ph">[Principal name]</span></h3>
+        <p class="person__role">Principal</p>
+        <p class="small"><span class="ph">[One line]</span></p>
+      </li>
+    </ul>
+    <p class="small muted" style="margin-top:var(--sp-4)"><span class="ph">[Governing body members: names, designations and representation]</span></p>
+  </div>
+</section>
+
+{# 8. Part of City Group of Colleges #}
+<section class="section" aria-labelledby="group-head">
+  <div class="wrap wrap--prose reveal">
+    <h2 id="group-head">Part of City Group of Colleges</h2>
+    <p>{{ site.name }} is a member of the {{ site.parentOrganization }}, a network of institutions across Chinhat, Jankipuram, Ratankhand and Barabanki.</p>
+    <p><a class="link-arrow" href="{{ site.parentUrl }}" target="_blank" rel="noopener">Visit City Group of Colleges</a></p>
+  </div>
+</section>

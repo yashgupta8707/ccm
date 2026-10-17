@@ -1,0 +1,60 @@
+---
+layout: layouts/page.njk
+permalink: /gallery/
+title: Gallery
+metaTitle: "Photo Gallery – City College of Management, Lucknow"
+metaDescription: "See photos and videos of City College of Management, Lucknow: campus, classrooms, labs, agriculture field, events, convocation and student activities."
+h1: Photo & Video Gallery
+intro: "Campus, classrooms and labs, agriculture field work, teaching practice, events, sports and convocation at City College of Management, Chinhat, Lucknow."
+breadcrumb:
+  - label: Gallery
+---
+<section class="section" aria-labelledby="albums-head">
+  <div class="wrap">
+    <h2 id="albums-head">Albums</h2>
+
+    {# Album tabs. Every photo stays visible when JavaScript is off. #}
+    {%- set albums = ['Campus', 'Classrooms & Labs', 'Agriculture', 'Teaching Practice', 'Events', 'Sports', 'Convocation & Achievements'] %}
+    <div class="filters" data-filter-target="#galleryGrid" role="group" aria-label="Filter photos by album">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      {%- for album in albums %}
+      <button type="button" data-filter="{{ album | slug }}" aria-pressed="false">{{ album }}</button>
+      {%- endfor %}
+    </div>
+
+    <ul class="gallery reveal" id="galleryGrid">
+      {%- for photo in images.gallery %}
+      <li data-tags="{{ photo.album | slug }}">
+        <button type="button" data-lightbox aria-label="View larger: {{ photo.alt }}">
+          <img src="{{ photo.url }}" alt="{{ photo.alt }}" width="{{ photo.width }}" height="{{ photo.height }}" loading="lazy">
+        </button>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="small muted" style="margin-top:var(--sp-4)">
+      <span class="ph">[Replace these placeholders with the college's own photos. Name each file for search, for example bca-computer-lab-city-college-management-lucknow.webp, and keep the alt text that names the college and the subject.]</span>
+    </p>
+  </div>
+</section>
+
+<section class="section section--alt" id="videos" aria-labelledby="vid-head">
+  <div class="wrap">
+    <h2 id="vid-head">Campus tour and highlights</h2>
+    <ul class="cards cards--3 reveal">
+      {%- for video in images.videos %}
+      <li class="card">
+        <h3>{{ video.title }}</h3>
+        <p class="small muted">YouTube video ID: {{ video.youtubeId | ph | safe }}</p>
+        <p class="small"><span class="ph">[Add the YouTube ID in src/_data/images.json to embed this video]</span></p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<figure class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" type="button" aria-label="Close image">&times;</button>
+  {# Filled in by main.js when a photo is opened. #}
+  <img src="" alt="" width="1200" height="900">
+  <figcaption></figcaption>
+</figure>

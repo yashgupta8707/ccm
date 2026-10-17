@@ -1,0 +1,82 @@
+---
+layout: layouts/page.njk
+permalink: /student-welfare/
+title: Student Welfare
+metaTitle: "Student Welfare & Grievance Cells – CCM Lucknow"
+metaDescription: "Anti-ragging committee, grievance redressal, internal complaints committee and SC/ST cell at City College of Management, Lucknow, with contacts."
+h1: Student Welfare & Grievance Cells
+intro: "Every student has a named person to go to. These committees are required by regulation and are active on campus."
+breadcrumb:
+  - label: Student Welfare
+---
+<section class="section" aria-labelledby="sw-head">
+  <div class="wrap">
+    <h2 id="sw-head" class="sr-only">Committees and cells</h2>
+    <div class="cols cols--2 reveal">
+
+      <div class="card">
+        <h3>Anti-Ragging Committee</h3>
+        <p>Ragging is a punishable offence. {{ site.name }} has zero tolerance for it, and the committee acts on every complaint.</p>
+        <p>
+          <strong>Members:</strong> <span class="ph">[Chairperson name and designation, faculty members, student representatives, parent representative]</span><br>
+          <strong>Contact:</strong> <span class="ph">[phone]</span> &middot; <span class="ph">[antiragging@citycollegemanagement.com]</span>
+        </p>
+        <p><strong>National Anti-Ragging Helpline:</strong> <a href="tel:18001805522">1800-180-5522</a> &middot;
+          <a href="https://www.antiragging.in" target="_blank" rel="noopener">antiragging.in</a></p>
+      </div>
+
+      <div class="card">
+        <h3>Grievance Redressal Committee</h3>
+        <p>For academic, administrative or fee-related grievances. Complaints are acknowledged and resolved within <span class="ph">[number]</span> working days.</p>
+        <p>
+          <strong>Members:</strong> <span class="ph">[Chairperson, faculty members, student representative]</span><br>
+          <strong>Contact:</strong> <span class="ph">[phone]</span> &middot; <span class="ph">[grievance@citycollegemanagement.com]</span>
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Internal Complaints Committee (ICC)</h3>
+        <p>Constituted under the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013. Complaints are handled confidentially.</p>
+        <p>
+          <strong>Members:</strong> <span class="ph">[Presiding officer (woman faculty member), faculty members, non-teaching member, external member from an NGO]</span><br>
+          <strong>Contact:</strong> <span class="ph">[phone]</span> &middot; <span class="ph">[icc@citycollegemanagement.com]</span>
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>SC/ST and Equal Opportunity Cell</h3>
+        <p>Supports students from Scheduled Castes, Scheduled Tribes, OBC, minority and differently-abled backgrounds, including help with scholarship applications.</p>
+        <p>
+          <strong>Members:</strong> <span class="ph">[Coordinator and members]</span><br>
+          <strong>Contact:</strong> <span class="ph">[phone]</span> &middot; <span class="ph">[equalopportunity@citycollegemanagement.com]</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="complaint" aria-labelledby="comp-head">
+  <div class="wrap">
+    <h2 id="comp-head">Raise a complaint online</h2>
+    <div class="cols cols--enquiry reveal">
+      <aside class="card">
+        <h3>What happens next</h3>
+        <ol class="steps">
+          <li>Your complaint reaches the relevant committee.</li>
+          <li>You receive an acknowledgement on the number or email you give.</li>
+          <li>The committee investigates and records its decision.</li>
+        </ol>
+        <p class="small muted">In an emergency, call the college on <a href="{{ site.phoneHref }}" data-track="call">{{ site.phone | ph | safe }}</a> or the national anti-ragging helpline on <a href="tel:18001805522">1800-180-5522</a>.</p>
+        <p class="small"><span class="ph">[Confirm which committee receives form submissions, and route them to that mailbox in site.json]</span></p>
+      </aside>
+      <div class="card">
+        {%- set formId = 'welfare' %}
+        {%- set formHeading = 'Complaint or grievance form' %}
+        {%- set formButton = 'Submit Complaint' %}
+        {%- set formNote = 'Use the Message box to describe the issue. Your details stay with the committee.' %}
+        {% include "partials/form.njk" %}
+      </div>
+    </div>
+  </div>
+</section>

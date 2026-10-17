@@ -1,0 +1,33 @@
+{#- Every SEO tag on the site is written once here and filled from each page's
+    front matter. Nothing below should be hard-coded in a page template. -#}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ metaTitle or title }}</title>
+<meta name="description" content="{{ metaDescription }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{% if noindex %}<meta name="robots" content="noindex, follow">
+{% else %}<meta name="robots" content="index, follow, max-image-preview:large">{% endif %}
+
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="en_IN">
+<meta property="og:title" content="{{ metaTitle or title }}">
+<meta property="og:description" content="{{ metaDescription }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ ogImage or site.ogImage }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ ogImageAlt or ('Campus of ' + site.name + ', Chinhat, Lucknow') }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ metaTitle or title }}">
+<meta name="twitter:description" content="{{ metaDescription }}">
+<meta name="twitter:image" content="{{ ogImage or site.ogImage }}">
+
+<meta name="theme-color" content="#0f3d2e">
+<meta name="geo.region" content="IN-UP">
+<meta name="geo.placename" content="Chinhat, Lucknow">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="stylesheet" href="/assets/css/style.css">

@@ -1,0 +1,229 @@
+---
+layout: layouts/base.njk
+---
+{#- The single template behind all seven programme pages. Everything it prints
+    comes from src/_data/programmes.json, so a change there changes every page,
+    the Course schema and the footer links together. -#}
+{%- set img = images[programme.image] %}
+
+{% include "partials/breadcrumb.njk" %}
+
+{# 1. Header #}
+<header class="prog-head">
+  <div class="wrap prog-head__inner">
+    <div class="prog-head__text">
+      <p class="eyebrow">{{ programme.level }} &middot; {{ programme.stream }}</p>
+      <h1>{{ programme.h1 }}</h1>
+      <p class="lede">{{ programme.summary }}</p>
+      <p class="badges">
+        <span class="badge">{{ programme.duration }}</span>
+        <span class="badge">Full time</span>
+        <span class="badge badge--accent">{{ programme.affiliation }}</span>
+      </p>
+      <p class="pagehead__actions">
+        <a class="btn btn--primary btn--lg" href="#enquiry">Apply Now</a>
+        <a class="btn btn--ghost btn--lg" href="/assets/docs/{{ programme.slug }}-brochure.pdf">Download Brochure</a>
+      </p>
+      <p class="small muted"><span class="ph">[Upload the {{ programme.name }} brochure PDF to /assets/docs/{{ programme.slug }}-brochure.pdf]</span></p>
+    </div>
+    <figure class="prog-head__figure">
+      <img src="{{ img.url }}" alt="{{ img.alt }}" width="{{ img.width }}" height="{{ img.height }}" fetchpriority="high">
+    </figure>
+  </div>
+</header>
+
+{# 2. Quick facts #}
+<section class="section section--tight" aria-labelledby="facts-head">
+  <div class="wrap">
+    <h2 id="facts-head" class="sr-only">Quick facts</h2>
+    <dl class="factbox reveal">
+      <div><dt>Duration</dt><dd>{{ programme.duration }}</dd></div>
+      <div><dt>Mode</dt><dd>Full time</dd></div>
+      <div><dt>Seats</dt><dd>{{ programme.seats | ph | safe }}</dd></div>
+      <div><dt>Eligibility</dt><dd>{{ programme.eligibilityShort | ph | safe }}</dd></div>
+      <div><dt>{% if programme.affiliation == 'NCTE recognised' %}Recognition{% else %}Affiliation{% endif %}</dt><dd>{{ programme.affiliation }}</dd></div>
+      <div><dt>Annual fee</dt><dd>{{ programme.fee | ph | safe }}</dd></div>
+    </dl>
+  </div>
+</section>
+
+{# 3. About the programme #}
+<section class="section" aria-labelledby="about-head">
+  <div class="wrap wrap--prose reveal">
+    <h2 id="about-head">About the {{ programme.name }} programme</h2>
+    {%- for para in programme.about %}
+    <p>{{ para | ph | safe }}</p>
+    {%- endfor %}
+    <p class="callout">{{ programme.affiliationNote | ph | safe }}</p>
+  </div>
+</section>
+
+{# 4. Why study it at CCM #}
+<section class="section section--alt" aria-labelledby="why-head">
+  <div class="wrap">
+    <h2 id="why-head">Why study {{ programme.name }} at {{ site.shortName }}</h2>
+    <ul class="ticklist reveal">
+      {%- for item in programme.why %}
+      <li>{{ item | ph | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{# 5. Eligibility and admission process #}
+<section class="section" aria-labelledby="eligibility-head">
+  <div class="wrap">
+    <h2 id="eligibility-head">Eligibility and admission process</h2>
+    <div class="cols cols--2 reveal">
+      <div class="card">
+        <h3>Eligibility</h3>
+        <p>{{ programme.eligibility | ph | safe }}</p>
+        <h3>Admission route</h3>
+        <p>{{ programme.admissionRoute | ph | safe }}</p>
+      </div>
+      <div class="card">
+        <h3>Steps to admission</h3>
+        <ol class="steps">
+          {%- for step in programme.admissionSteps %}
+          <li>{{ step | ph | safe }}</li>
+          {%- endfor %}
+        </ol>
+        <p><a class="link-arrow" href="/admissions/">See the full admissions page</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# 6. Programme structure #}
+<section class="section section--alt" aria-labelledby="structure-head">
+  <div class="wrap">
+    <h2 id="structure-head">Programme structure</h2>
+    <p class="lede">{{ programme.structureNote | ph | safe }}</p>
+    <div class="cols cols--2 reveal">
+      {%- for sem in programme.semesters %}
+      <div class="card card--sem">
+        <h3>{{ sem.name }}</h3>
+        <p>{{ sem.subjects | ph | safe }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{# 7. Fee structure #}
+<section class="section" aria-labelledby="fees-head">
+  <div class="wrap">
+    <h2 id="fees-head">Fee structure</h2>
+    <div class="tablewrap reveal">
+      <table class="table">
+        <caption>Year-wise fees for {{ programme.name }}. <span class="ph">[Confirm all figures with the accounts office before publishing]</span></caption>
+        <thead>
+          <tr>
+            <th scope="col">Head</th>
+            {%- for sem in programme.semesters %}
+            <th scope="col">Year {{ loop.index }}</th>
+            {%- endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Tuition fee</th>{% for sem in programme.semesters %}<td><span class="ph">[fee]</span></td>{% endfor %}</tr>
+          <tr><th scope="row">Examination fee</th>{% for sem in programme.semesters %}<td><span class="ph">[fee]</span></td>{% endfor %}</tr>
+          <tr><th scope="row">Other charges</th>{% for sem in programme.semesters %}<td><span class="ph">[fee]</span></td>{% endfor %}</tr>
+          <tr><th scope="row">Total per year</th>{% for sem in programme.semesters %}<td><span class="ph">[total]</span></td>{% endfor %}</tr>
+        </tbody>
+      </table>
+    </div>
+    <p><a class="link-arrow" href="/admissions/#fees">Fee structure for all programmes</a></p>
+  </div>
+</section>
+
+{# 8. Career opportunities #}
+<section class="section section--alt" aria-labelledby="careers-head">
+  <div class="wrap">
+    <h2 id="careers-head">Career opportunities after {{ programme.name }}</h2>
+    <div class="cols cols--2 reveal">
+      <div class="card">
+        <h3>Job roles</h3>
+        <p>{{ programme.careers.roles | ph | safe }}</p>
+      </div>
+      <div class="card">
+        <h3>Higher study</h3>
+        <p>{{ programme.careers.higherStudy | ph | safe }}</p>
+        <p><a class="link-arrow" href="/placements/">How our placement cell helps</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# 9. Faculty #}
+<section class="section" aria-labelledby="faculty-head">
+  <div class="wrap">
+    <h2 id="faculty-head">Faculty for {{ programme.name }}</h2>
+    <p class="lede"><span class="ph">[Add the department's faculty with names, designations and qualifications]</span></p>
+    <ul class="people reveal">
+      {%- for n in [1, 2, 3, 4] %}
+      {%- set fimg = images['faculty' + n] %}
+      <li class="person">
+        <img src="{{ fimg.url }}" alt="{{ fimg.alt }}" width="{{ fimg.width }}" height="{{ fimg.height }}" loading="lazy">
+        <h3><span class="ph">[Faculty name {{ n }}]</span></h3>
+        <p class="person__role"><span class="ph">[Designation]</span></p>
+        <p class="small"><span class="ph">[Qualification and years of experience]</span></p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{# 10. FAQs — the array also drives the FAQPage schema in the head. #}
+{% include "partials/faqs.njk" %}
+
+{# 11. Enquiry box #}
+<section class="section section--alt" id="enquiry" aria-labelledby="enquiry-head">
+  <div class="wrap">
+    <h2 id="enquiry-head">Enquire about {{ programme.name }}</h2>
+    <div class="cols cols--enquiry reveal">
+      <aside class="card counsellor">
+        {%- set cimg = images.counsellor1 %}
+        <img src="{{ cimg.url }}" alt="Admission counsellor for {{ programme.name }} at {{ site.name }}, Lucknow" width="{{ cimg.width }}" height="{{ cimg.height }}" loading="lazy">
+        <h3><span class="ph">[Counsellor name]</span></h3>
+        <p class="person__role">Admission counsellor &middot; {{ programme.name }}</p>
+        <p class="small">Languages: <span class="ph">[Hindi, English]</span></p>
+        <p class="counsellor__actions">
+          <a class="btn btn--primary btn--sm" href="{{ site.phoneHref }}" data-track="call">Call</a>
+          <a class="btn btn--ghost btn--sm" href="{{ site.whatsappHref }}" data-track="whatsapp">WhatsApp</a>
+        </p>
+        <p class="small muted">{{ site.officeHours | ph | safe }}</p>
+      </aside>
+      <div class="card">
+        {%- set formId = 'prog-' + programme.slug %}
+        {%- set formProgramme = programme.slug %}
+        {%- set formHeading = 'Request a call back' %}
+        {%- set formButton = 'Send Enquiry' %}
+        {%- set formNote = 'Your programme is already selected. We reply within one working day.' %}
+        {% include "partials/form.njk" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# 12. Related programmes #}
+<section class="section" aria-labelledby="related-head">
+  <div class="wrap">
+    <h2 id="related-head">Related programmes</h2>
+    <ul class="cards cards--3 reveal">
+      {%- for slug in programme.related %}
+      {%- for p in programmes %}{% if p.slug == slug %}
+      <li class="card card--prog">
+        <h3><a href="/courses/{{ p.slug }}/">{{ p.name }}</a></h3>
+        <p class="small muted">{{ p.duration }} &middot; {{ p.affiliation }}</p>
+        <p>{{ p.summary }}</p>
+        <a class="link-arrow" href="/courses/{{ p.slug }}/">View {{ p.name }}</a>
+      </li>
+      {% endif %}{% endfor %}
+      {%- endfor %}
+    </ul>
+    <p><a class="link-arrow" href="/courses/">All seven programmes</a></p>
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

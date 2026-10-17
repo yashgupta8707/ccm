@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-IN" class="no-js">
+<head>
+{% include "partials/head.njk" %}
+{% include "partials/schema.njk" %}
+{% block extraHead %}{% endblock %}
+</head>
+<body class="{{ bodyClass }}">
+{% include "partials/header.njk" %}
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+{% include "partials/footer.njk" %}
+
+<script src="/assets/js/main.js" defer></script>
+{#- Google Analytics 4: add the measurement ID to site.json to switch it on. -#}
+{% if '[' not in site.analyticsId %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analyticsId }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.analyticsId }}');
+</script>
+{% endif %}
+</body>
+</html>

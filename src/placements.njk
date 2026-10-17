@@ -1,0 +1,98 @@
+---
+layout: layouts/page.njk
+permalink: /placements/
+title: Placements
+metaTitle: "Placements & Career Support – City College of Management"
+metaDescription: "Training and placement cell at City College of Management, Lucknow: recruiters, internships, career guidance and placed students for BBA, BCA, B.Com and B.Ed."
+h1: Training & Placement Cell
+pageHeadImage: placements
+breadcrumb:
+  - label: Placements
+ctaHeading: Start the course that starts your career
+---
+<section class="section" aria-labelledby="intro-head">
+  <div class="wrap">
+    <h2 id="intro-head" class="sr-only">About the placement cell</h2>
+    <p class="lede">The Training &amp; Placement Cell prepares students for their first job from the day they join. Students receive training in communication, aptitude, interviews and workplace skills, and the cell connects them with employers for internships and campus recruitment.</p>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="cell-head">
+  <div class="wrap">
+    <h2 id="cell-head">What the cell does</h2>
+    <ul class="ticklist reveal">
+      <li>Soft-skills, aptitude and group-discussion training</li>
+      <li>Resume building and mock interviews</li>
+      <li>Internships and live projects with local businesses and schools</li>
+      <li>Campus recruitment drives and pool drives with {{ site.parentOrganization }}</li>
+      <li>Career counselling for higher studies and government examinations</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="high-head">
+  <div class="wrap">
+    <h2 id="high-head">Placement highlights</h2>
+    <p class="lede">Figures are published only when they can be backed by college records. <span class="ph">[Fill in from the placement register for the latest batch, or remove this section until the data is verified]</span></p>
+    <ul class="stats reveal">
+      <li><strong><span class="ph">[number]</span></strong><span>Students placed</span></li>
+      <li><strong><span class="ph">[number]</span></strong><span>Recruiting companies</span></li>
+      <li><strong><span class="ph">[package]</span></strong><span>Highest package</span></li>
+      <li><strong><span class="ph">[package]</span></strong><span>Average package</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="recruiters-head">
+  <div class="wrap">
+    <h2 id="recruiters-head">Our recruiters</h2>
+    <p class="lede"><span class="ph">[Add the names and logos of recruiting companies and schools, with permission to use each logo]</span></p>
+    <ul class="logos reveal" aria-label="Recruiter logos">
+      {%- for n in [1,2,3,4,5,6,7,8,9,10,11,12] %}
+      <li><span class="ph">[Recruiter {{ n }}]</span></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="placed-head">
+  <div class="wrap">
+    <h2 id="placed-head">Placed students</h2>
+    <p class="lede"><span class="ph">[Add each student's photo, name, programme, batch and company, with their written consent]</span></p>
+    <ul class="people reveal">
+      {%- for n in [1,2,3] %}
+      {%- set simg = images['student' + n] %}
+      <li class="person">
+        <img src="{{ simg.url }}" alt="{{ simg.alt }}" width="{{ simg.width }}" height="{{ simg.height }}" loading="lazy">
+        <h3><span class="ph">[Student name]</span></h3>
+        <p class="person__role"><span class="ph">[Programme, batch]</span></p>
+        <p class="small"><span class="ph">[Company]</span></p>
+      </li>
+      {%- endfor %}
+      <li class="person" style="display:grid;place-content:center;padding:var(--sp-5);text-align:left">
+        <h3>Which courses lead where?</h3>
+        <p class="small">Every programme page lists its job roles and higher-study options.</p>
+        <p><a class="link-arrow" href="/courses/">See all programmes</a></p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="contact-head">
+  <div class="wrap">
+    <h2 id="contact-head">Placement cell contact</h2>
+    <div class="card reveal" style="max-width:40rem">
+      <h3><span class="ph">[Coordinator name]</span></h3>
+      <p class="person__role">Training &amp; Placement Coordinator</p>
+      <p>
+        Phone: <span class="ph">[phone]</span><br>
+        Email: <span class="ph">[placement@citycollegemanagement.com]</span>
+      </p>
+      <p class="small muted">Office hours: {{ site.officeHours | ph | safe }}</p>
+      <p>
+        <a class="btn btn--primary btn--sm" href="{{ site.phoneHref }}" data-track="call">Call the college</a>
+        <a class="btn btn--ghost btn--sm" href="/contact/">Contact page</a>
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+---
+layout: layouts/page.njk
+permalink: /mandatory-disclosure/
+title: Mandatory Disclosure
+metaTitle: "Mandatory Disclosure – City College of Management"
+metaDescription: "NCTE and University of Lucknow mandatory disclosure for City College of Management, Lucknow: approvals, intake, faculty, fees and infrastructure."
+h1: Mandatory Disclosure
+intro: "Published as required by the National Council for Teacher Education and the University of Lucknow. Each section links to the official document."
+breadcrumb:
+  - label: Mandatory Disclosure
+---
+<section class="section" aria-labelledby="md-head">
+  <div class="wrap wrap--prose prose reveal">
+    <h2 id="md-head">Institution details</h2>
+    <p><a class="link-arrow" href="/assets/docs/mandatory-disclosure.pdf">Download the full mandatory disclosure (PDF)</a>
+      <span class="ph">[Upload the signed, dated disclosure to /assets/docs/mandatory-disclosure.pdf]</span></p>
+
+    <div class="tablewrap">
+    <table class="table table--compact">
+      <tbody>
+        <tr><th scope="row">Name of the institution</th><td>{{ site.name }}</td></tr>
+        <tr><th scope="row">Address</th><td>{{ site.address.street }}, {{ site.address.locality }}, {{ site.address.region }} {{ site.address.postalCode | ph | safe }}</td></tr>
+        <tr><th scope="row">Year of establishment</th><td>{{ site.established }}</td></tr>
+        <tr><th scope="row">Telephone and email</th><td>{{ site.phone | ph | safe }} &middot; {{ site.email | ph | safe }}</td></tr>
+        <tr><th scope="row">Society or trust</th><td><span class="ph">[Name of the society or trust, registration number and date, and office address]</span></td></tr>
+        <tr><th scope="row">Parent group</th><td>{{ site.parentOrganization }}</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2>Approvals and affiliation orders</h2>
+    <div class="tablewrap">
+    <table class="table table--compact">
+      <tbody>
+        <tr><th scope="row">{{ site.affiliation.university }}</th><td>BBA, BCA, B.Com and B.Sc Agriculture. <span class="ph">[Affiliation letter number and date]</span></td></tr>
+        <tr><th scope="row">NCTE recognition</th><td>B.Ed, M.Ed and D.El.Ed are recognised by the National Council for Teacher Education. <span class="ph">[Recognition order numbers and dates for each programme]</span></td></tr>
+        <tr><th scope="row">Affiliating body: B.Ed, M.Ed</th><td>{{ site.affiliation.bedAffiliatingBody | ph | safe }}</td></tr>
+        <tr><th scope="row">Affiliating body: D.El.Ed</th><td>{{ site.affiliation.deledAffiliatingBody | ph | safe }}</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2>Sanctioned intake per programme</h2>
+    <div class="tablewrap">
+    <table class="table table--compact">
+      <thead><tr><th scope="col">Programme</th><th scope="col">Duration</th><th scope="col">Sanctioned intake</th></tr></thead>
+      <tbody>
+        {%- for p in programmes %}
+        <tr><th scope="row">{{ p.name }}</th><td>{{ p.duration }}</td><td>{{ p.seats | ph | safe }}</td></tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+    </div>
+
+    <h2>Faculty</h2>
+    <p><span class="ph">[Full faculty list: name, designation, department, qualifications, date of appointment and nature of appointment, as required by NCTE]</span></p>
+
+    <h2>Fee structure</h2>
+    <p>Programme-wise fees are published on the <a href="/admissions/#fees">Admissions page</a>. <span class="ph">[Attach the fee structure approved by the state fee regulatory authority, where applicable]</span></p>
+
+    <h2>Land and building</h2>
+    <p><span class="ph">[Land area, khasra or plot numbers, ownership documents, building plan approval and built-up area]</span></p>
+
+    <h2>Infrastructure</h2>
+    <p>Classrooms, library, computer lab, teacher-education labs, agriculture field, seminar hall and sports facilities are described on the <a href="/campus-life/">Campus Life page</a>. <span class="ph">[Add the measurements and counts required in the NCTE format]</span></p>
+
+    <h2>Governing body</h2>
+    <p><span class="ph">[Names, designations and representation of all governing body members, with the date of the last meeting]</span></p>
+
+    <h2>Student welfare committees</h2>
+    <p>Anti-ragging, grievance redressal, internal complaints and SC/ST cell details are published on the <a href="/student-welfare/">Student Welfare page</a>.</p>
+  </div>
+</section>

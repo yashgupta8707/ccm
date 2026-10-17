@@ -1,0 +1,78 @@
+{#- Enquiry / application form.
+    Set before including:
+      formId          unique id on the page (required when a page has two forms)
+      formProgramme   programme slug to pre-select, or nothing for no default
+      formHeading     visible heading, or nothing to render the form bare
+      formNote        small line under the heading
+    Posts to site.formEndpoint; validation is client-side only and a successful
+    submit lands on /thank-you (see assets/js/main.js). -#}
+{%- set fid = formId or 'enquiry' %}
+<form class="form" id="{{ fid }}" action="{{ site.formEndpoint }}" method="post" novalidate data-form>
+  {%- if formHeading %}
+  <h3 class="form__heading">{{ formHeading }}</h3>
+  {%- endif %}
+  {%- if formNote %}<p class="form__note">{{ formNote | ph | safe }}</p>{% endif %}
+
+  {# formsubmit.co-style helpers; harmless on any other endpoint. #}
+  <input type="hidden" name="_next" value="{{ site.url }}/thank-you/">
+  <input type="hidden" name="_subject" value="Website enquiry — {{ site.name }}">
+  <input type="hidden" name="source" value="{{ page.url }}">
+  <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true">
+
+  <div class="form__grid">
+    <p class="field">
+      <label for="{{ fid }}-name">Full name <span class="req" aria-hidden="true">*</span></label>
+      <input id="{{ fid }}-name" name="name" type="text" autocomplete="name" required minlength="2"
+             aria-describedby="{{ fid }}-name-err">
+      <span class="field__error" id="{{ fid }}-name-err" data-error hidden>Please enter your full name.</span>
+    </p>
+
+    <p class="field">
+      <label for="{{ fid }}-mobile">Mobile number <span class="req" aria-hidden="true">*</span></label>
+      <input id="{{ fid }}-mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel"
+             required pattern="[6-9][0-9]{9}" maxlength="10"
+             aria-describedby="{{ fid }}-mobile-hint {{ fid }}-mobile-err">
+      <span class="field__hint" id="{{ fid }}-mobile-hint">10-digit Indian mobile number. <span class="ph">[OTP verification to be added by the CRM / SMS provider]</span></span>
+      <span class="field__error" id="{{ fid }}-mobile-err" data-error hidden>Please enter a valid 10-digit mobile number.</span>
+    </p>
+
+    <p class="field">
+      <label for="{{ fid }}-email">Email <span class="field__optional">(optional)</span></label>
+      <input id="{{ fid }}-email" name="email" type="email" autocomplete="email"
+             aria-describedby="{{ fid }}-email-err">
+      <span class="field__error" id="{{ fid }}-email-err" data-error hidden>Please enter a valid email address.</span>
+    </p>
+
+    <p class="field">
+      <label for="{{ fid }}-programme">Programme <span class="req" aria-hidden="true">*</span></label>
+      <select id="{{ fid }}-programme" name="programme" required aria-describedby="{{ fid }}-programme-err">
+        <option value="">Select a programme</option>
+        {%- for p in programmes %}
+        <option value="{{ p.name }}"{% if formProgramme == p.slug %} selected{% endif %}>{{ p.name }} &mdash; {{ p.fullName }}</option>
+        {%- endfor %}
+      </select>
+      <span class="field__error" id="{{ fid }}-programme-err" data-error hidden>Please choose a programme.</span>
+    </p>
+
+    <p class="field">
+      <label for="{{ fid }}-city">City</label>
+      <input id="{{ fid }}-city" name="city" type="text" autocomplete="address-level2">
+    </p>
+
+    <p class="field field--full">
+      <label for="{{ fid }}-message">Message <span class="field__optional">(optional)</span></label>
+      <textarea id="{{ fid }}-message" name="message" rows="3"></textarea>
+    </p>
+
+    <p class="field field--full field--check">
+      <input id="{{ fid }}-consent" name="consent" type="checkbox" value="yes" required
+             aria-describedby="{{ fid }}-consent-err">
+      <label for="{{ fid }}-consent">I agree to be contacted by the college about admissions.</label>
+      <span class="field__error" id="{{ fid }}-consent-err" data-error hidden>Please tick the consent box so we can contact you.</span>
+    </p>
+  </div>
+
+  <button class="btn btn--primary btn--lg" type="submit">{{ formButton or 'Submit Application' }}</button>
+  <p class="form__status" data-form-status role="status" aria-live="polite"></p>
+  <p class="form__legal">We use your details only to answer your admission enquiry. See our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+</form>

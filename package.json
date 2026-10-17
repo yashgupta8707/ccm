@@ -1,0 +1,14 @@
+{
+  "name": "ccm-website",
+  "version": "1.0.0",
+  "description": "Website for City College of Management, Chinhat, Lucknow — a unit of City Group of Colleges.",
+  "private": true,
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

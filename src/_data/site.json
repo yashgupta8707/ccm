@@ -1,0 +1,64 @@
+{
+  "name": "City College of Management",
+  "shortName": "CCM",
+  "legalLine": "City College of Management, a unit of City Group of Colleges",
+  "parentOrganization": "City Group of Colleges, Lucknow",
+  "parentUrl": "https://cgclko.com",
+  "url": "https://citycollegemanagement.com",
+  "established": 2008,
+  "admissionSession": "2027-28",
+  "tagline": "University of Lucknow-affiliated degrees and NCTE-recognised teacher education, on Faizabad Road since 2008.",
+  "description": "Established in 2008, City College of Management in Chinhat, Lucknow offers University of Lucknow-affiliated BBA, BCA, B.Com and B.Sc Agriculture, and NCTE-recognised B.Ed, M.Ed and D.El.Ed.",
+  "address": {
+    "street": "Tiwariganj, Faizabad Road",
+    "locality": "Chinhat, Lucknow",
+    "region": "Uttar Pradesh",
+    "postalCode": "[PIN code]",
+    "country": "IN",
+    "landmark": "Near Crown Mall, Faizabad Road",
+    "full": "City College of Management, Tiwariganj, Faizabad Road, Chinhat, Lucknow, Uttar Pradesh [PIN code]"
+  },
+  "geo": {
+    "latitude": "26.8850",
+    "longitude": "81.0330",
+    "note": "[confirm exact campus coordinates]"
+  },
+  "mapEmbed": "https://www.google.com/maps?q=City+College+of+Management+Tiwariganj+Faizabad+Road+Chinhat+Lucknow&output=embed",
+  "mapDirections": "https://www.google.com/maps/dir/?api=1&destination=City+College+of+Management+Tiwariganj+Faizabad+Road+Chinhat+Lucknow",
+  "campusArea": "[e.g. 4 acres]",
+  "phone": "[+91 XXXXX XXXXX]",
+  "phoneHref": "tel:+91XXXXXXXXXX",
+  "officePhone": "[+91 XXXXX XXXXX]",
+  "whatsapp": "[+91 XXXXX XXXXX]",
+  "whatsappHref": "https://wa.me/91XXXXXXXXXX",
+  "email": "[admissions@citycollegemanagement.com]",
+  "emailHref": "mailto:admissions@citycollegemanagement.com",
+  "infoEmail": "[info@citycollegemanagement.com]",
+  "officeHours": "[Monday to Saturday, 9:00 am to 5:00 pm]",
+  "stats": {
+    "programmes": "7",
+    "programmesBreakdown": "4 undergraduate, 2 teacher education degrees, 1 diploma",
+    "students": "[number]",
+    "faculty": "[number]",
+    "alumni": "[number]+"
+  },
+  "affiliation": {
+    "university": "University of Lucknow",
+    "universityProgrammes": "BBA, BCA, B.Com and B.Sc Agriculture",
+    "ncte": "National Council for Teacher Education (NCTE)",
+    "nctePprogrammes": "B.Ed, M.Ed and D.El.Ed",
+    "bedAffiliatingBody": "[University of Lucknow — confirm]",
+    "deledAffiliatingBody": "[SCERT Uttar Pradesh — confirm]",
+    "collegeCode": "[college code]"
+  },
+  "social": {
+    "facebook": "[Facebook URL]",
+    "instagram": "[Instagram URL]",
+    "youtube": "[YouTube URL]",
+    "linkedin": "[LinkedIn URL]"
+  },
+  "formEndpoint": "https://formsubmit.co/[admissions@citycollegemanagement.com]",
+  "analyticsId": "[G-XXXXXXXXXX]",
+  "transport": "[college bus routes across Lucknow]",
+  "ogImage": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&h=630&q=70"
+}

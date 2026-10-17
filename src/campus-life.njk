@@ -1,0 +1,122 @@
+---
+layout: layouts/page.njk
+permalink: /campus-life/
+title: Campus Life
+metaTitle: "Campus Life & Facilities – City College of Management Lucknow"
+metaDescription: "Explore the campus of City College of Management, Chinhat, Lucknow: library, computer lab, classrooms, agriculture field, hostel, transport, sports and events."
+h1: Campus Life at City College of Management
+pageHeadImage: campusLife
+breadcrumb:
+  - label: Campus Life
+ctaHeading: See it for yourself
+ctaText: Campus visits are welcome. Call the admission team to arrange a time.
+ctaVisit: true
+---
+<section class="section" aria-labelledby="intro-head">
+  <div class="wrap">
+    <h2 id="intro-head" class="sr-only">About our campus</h2>
+    <p class="lede">Our campus on Faizabad Road, Chinhat, gives students the space and facilities to learn, practise and grow. Its {{ site.campusArea | ph | safe }} grounds include academic blocks, laboratories, a library, an agriculture field and room for sports and events.</p>
+  </div>
+</section>
+
+<section class="section section--alt" id="facilities" aria-labelledby="fac-head">
+  <div class="wrap">
+    <h2 id="fac-head">What the campus offers</h2>
+    <ul class="cards cards--3 reveal">
+      {%- set facilities = [
+        { img: 'library', title: 'Library', key: '[number] books',
+          text: 'A reading room and lending library with [number] books, [number] journals and digital resources for every programme.' },
+        { img: 'computerLab', title: 'Computer Lab', key: '[number] systems',
+          text: '[number] networked computers with current software, used for BCA practicals and computer training across programmes.' },
+        { img: 'classrooms', title: 'Classrooms', key: '[number] rooms',
+          text: 'Spacious, well-lit classrooms with [smart boards / projectors].' },
+        { img: 'agricultureField', title: 'Agriculture Field', key: '[area]',
+          text: '[area] of field space for B.Sc Agriculture practicals and crop production. [confirm]' },
+        { img: 'teacherLabs', title: 'Teacher Education Labs', key: 'Psychology · ICT',
+          text: 'Psychology lab, ICT lab and teaching-aids room for B.Ed, M.Ed and D.El.Ed trainees. [confirm]' },
+        { img: 'seminarHall', title: 'Seminar Hall', key: 'Seats [number]',
+          text: 'Venue for guest lectures, workshops and cultural programmes, seating [number].' },
+        { img: 'hostel', title: 'Hostel', key: '[boys / girls]',
+          text: 'Separate hostels for [boys / girls] with [facilities]. [confirm availability]' },
+        { img: 'transport', title: 'Transport', key: '[routes]',
+          text: 'College buses on [routes] across Lucknow. [confirm]' },
+        { img: 'sports', title: 'Sports', key: 'Grounds & indoor',
+          text: 'Grounds and equipment for [cricket, volleyball, badminton, indoor games].' },
+        { img: 'cafeteria', title: 'Cafeteria', key: 'Meals & snacks',
+          text: 'Hygienic canteen serving meals and snacks.' },
+        { img: 'wifi', title: 'Wi-Fi and safety', key: 'CCTV · First aid',
+          text: 'Wi-Fi campus, CCTV surveillance and medical first aid. [confirm]' }
+      ] %}
+      {%- for f in facilities %}
+      {%- set fimg = images[f.img] %}
+      <li class="card card--media card--link">
+        <img src="{{ fimg.url }}" alt="{{ fimg.alt }}" width="{{ fimg.width }}" height="{{ fimg.height }}" loading="lazy">
+        <div class="card__body">
+          <h3>{{ f.title }}</h3>
+          <p class="badges"><span class="badge badge--accent">{{ f.key | ph | safe }}</span></p>
+          <p>{{ f.text | ph | safe }}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="clubs" aria-labelledby="clubs-head">
+  <div class="wrap wrap--prose reveal">
+    <h2 id="clubs-head">Clubs and activities</h2>
+    <p>Students run clubs for culture, sports, literature, entrepreneurship, technology and community service. The college celebrates annual functions, sports meets, national days, Teachers' Day and festivals, and organises NSS or social outreach activities <span class="ph">[confirm]</span>.</p>
+    <p><a class="link-arrow" href="/news-events/">See what is coming up</a></p>
+  </div>
+</section>
+
+{# Events preview — the three most recent event posts. #}
+<section class="section section--alt" id="events" aria-labelledby="events-head">
+  <div class="wrap">
+    <h2 id="events-head">Upcoming and recent events</h2>
+    {%- set eventPosts = collections.events | limit(3) %}
+    {%- if eventPosts.length %}
+    <ul class="posts posts--3 reveal">
+      {%- for post in eventPosts %}
+      {%- set nimg = images[post.data.image] %}
+      <li class="post-card">
+        {%- if nimg %}<img src="{{ nimg.url }}" alt="{{ nimg.alt }}" width="{{ nimg.width }}" height="{{ nimg.height }}" loading="lazy">{% endif %}
+        <div class="post-card__body">
+          <p class="post-card__meta">{{ post.data.category }} &middot; <time datetime="{{ post.date | dateISO }}">{{ post.date | dateLong }}</time></p>
+          <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+          <p>{{ post.data.intro | excerpt(120) }}</p>
+          <a class="link-arrow" href="{{ post.url }}">Read more</a>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <p class="lede"><span class="ph">[Publish event posts in src/news/ with category: Events]</span></p>
+    {%- endif %}
+    <p style="margin-top:var(--sp-5)"><a class="link-arrow" href="/news-events/">All news and events</a></p>
+  </div>
+</section>
+
+{# Gallery preview — eight photos. #}
+<section class="section" id="gallery" aria-labelledby="gal-head">
+  <div class="wrap">
+    <h2 id="gal-head">The campus in pictures</h2>
+    <ul class="gallery reveal">
+      {%- for photo in images.gallery | limit(8) %}
+      <li>
+        <button type="button" data-lightbox aria-label="View larger: {{ photo.alt }}">
+          <img src="{{ photo.url }}" alt="{{ photo.alt }}" width="{{ photo.width }}" height="{{ photo.height }}" loading="lazy">
+        </button>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p style="margin-top:var(--sp-5)"><a class="link-arrow" href="/gallery/">View full gallery</a></p>
+  </div>
+</section>
+
+<figure class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" type="button" aria-label="Close image">&times;</button>
+  {# Filled in by main.js when a photo is opened. #}
+  <img src="" alt="" width="1200" height="900">
+  <figcaption></figcaption>
+</figure>

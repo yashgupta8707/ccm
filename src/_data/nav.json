@@ -1,0 +1,27 @@
+{
+  "primary": [
+    { "label": "Home", "url": "/" },
+    { "label": "About", "url": "/about/" },
+    { "label": "Courses", "url": "/courses/" },
+    { "label": "Admissions", "url": "/admissions/" },
+    { "label": "Campus Life", "url": "/campus-life/" },
+    { "label": "Placements", "url": "/placements/" },
+    { "label": "Contact", "url": "/contact/" }
+  ],
+  "quickLinks": [
+    { "label": "About", "url": "/about/" },
+    { "label": "Admissions", "url": "/admissions/" },
+    { "label": "Campus Life", "url": "/campus-life/" },
+    { "label": "Gallery", "url": "/gallery/" },
+    { "label": "Placements", "url": "/placements/" },
+    { "label": "News & Events", "url": "/news-events/" },
+    { "label": "Blog", "url": "/blog/" },
+    { "label": "Mandatory Disclosure", "url": "/mandatory-disclosure/" },
+    { "label": "Student Welfare", "url": "/student-welfare/" }
+  ],
+  "legal": [
+    { "label": "Privacy Policy", "url": "/privacy-policy/" },
+    { "label": "Terms of Use", "url": "/terms/" },
+    { "label": "Fee Refund Policy", "url": "/refund-policy/" }
+  ]
+}

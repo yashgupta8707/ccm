@@ -1,0 +1,47 @@
+---
+layout: layouts/page.njk
+permalink: /news-events/
+title: News & Events
+metaTitle: "News, Notices & Events – City College of Management"
+metaDescription: "Latest notices, admission updates, merit lists, results and campus events from City College of Management, Chinhat, Lucknow."
+h1: News, Notices & Events
+intro: "Notices, admission updates, merit lists, results and events from the campus on Faizabad Road, Chinhat."
+breadcrumb:
+  - label: News & Events
+---
+<section class="section" aria-labelledby="posts-head">
+  <div class="wrap">
+    <h2 id="posts-head" class="sr-only">All posts</h2>
+
+    <div class="filters" data-filter-target="#newsList" data-filter-empty="#newsEmpty" role="group" aria-label="Filter posts by category">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="notices" aria-pressed="false">Notices</button>
+      <button type="button" data-filter="admissions" aria-pressed="false">Admissions</button>
+      <button type="button" data-filter="results-merit-lists" aria-pressed="false">Results &amp; Merit Lists</button>
+      <button type="button" data-filter="events" aria-pressed="false">Events</button>
+    </div>
+
+    <ul class="posts posts--3 reveal" id="newsList">
+      {%- for post in collections.news %}
+      {%- set nimg = images[post.data.image] %}
+      <li class="post-card" data-tags="{{ post.data.category | slug }}">
+        {%- if nimg %}<img src="{{ nimg.url }}" alt="{{ nimg.alt }}" width="{{ nimg.width }}" height="{{ nimg.height }}" loading="lazy">{% endif %}
+        <div class="post-card__body">
+          <p class="post-card__meta">{{ post.data.category }} &middot; <time datetime="{{ post.date | dateISO }}">{{ post.date | dateLong }}</time></p>
+          <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+          <p>{{ post.data.intro | excerpt(140) }}</p>
+          {%- if post.data.attachment %}<p class="small muted">PDF attached</p>{% endif %}
+          <a class="link-arrow" href="{{ post.url }}">Read more</a>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p id="newsEmpty" hidden>No posts in this category yet.</p>
+
+    {%- if not collections.news.length %}
+    <p class="lede"><span class="ph">[Add posts as Markdown files in src/news/ — see the three samples already there]</span></p>
+    {%- endif %}
+
+    <p class="small muted" style="margin-top:var(--sp-5)">Notices and merit lists are written out as text on each post, with the PDF attached for download, so that search engines can read them.</p>
+  </div>
+</section>
